@@ -206,6 +206,12 @@
             background-color: #c3af6e;
         }
     </style>
+
+
+    <!--    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">-->
+    <!--    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>-->
+    <!-- custom css -->
+    <!--    <link href="../static/css/font-awesome.min.css" rel="stylesheet">&lt;!&ndash; fontawesome css &ndash;&gt;-->
 </head>
 
 <body>
@@ -219,12 +225,12 @@
                 </a>
             </div>
             <div class="menu">
-                 <a href="{{ url_for('index')}}" class="option">首页</a>
-            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
-            <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
-            <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
-            <a href="{{ url_for('talk')}}" class="option select optionNow">专家解答</a>
-            <a href="{{ url_for('news')}}" class="option">预防经验</a>
+                <a href="{{ url_for('index')}}" class="option">首页</a>
+                <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+                <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+                <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
+                <a href="{{ url_for('talk')}}" class="option select optionNow">专家解答</a>
+                <a href="{{ url_for('news')}}" class="option">预防经验</a>
             </div>
         </div>
     </div>
@@ -410,5 +416,31 @@
     <p>&copy; Copyright 2022 NWAFU</p>
 </footer>
 </body>
+<style>
+    footer {
+        background: #191818;
+    }
 
+    footer .text-center {
+        text-align: center !important;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 17px;
+        line-height: 2em;
+        letter-spacing: 2px;
+        color: #707579;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    footer img{
+        margin-left: 28%;
+    }
+
+    footer text-center{
+        text-align: center !important;
+    }
+</style>
 </html>
