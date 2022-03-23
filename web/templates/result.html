@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>苹果叶部病害识别结果</title>
+    <link rel="icon"
+          href="{{ url_for('static', filename= './source/img/Kiwifruit.ico',_t=val1) }}"
+          sizes="32x32">
+          <!-- 原icon -->
+  <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon" />
+  <!-- 新icon -->
+
+    <style type="text/css">
+        body {
+            text-align: center
+        }
+
+        .img {
+            position: fixed;
+            top: 80px;
+            left: 225px;
+            right: 225px;
+            bottom: 70px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.3)
+        }
+
+        #pred {
+            background: rgba(255, 255, 255, 0.8)
+        }
+
+        #intro {
+            font-family: Kaiti;
+            font-weight:bold;
+            font-size: small;
+            background: rgba(235, 235, 235, 0.8)
+        }
+    </style>
+</head>
+
+<body background="{{ url_for('static', filename= './source/img/background2.jpg',_t=val1) }}">
+
+<div class="img">
+    <img src="{{ url_for('static', filename= './images/upload.jpg',_t=val1) }}"
+         width="400" height="400"/>
+    <img src="{{ url_for('static', filename= './images/bar.jpg',_t=val1) }}"
+         width="400" height="400"/>
+    <div id="pred">
+        {{info}}
+    </div>
+    <div id="intro">
+        {{introduction}}
+        <hr>
+        <br>
+        <a href="{{ url_for('news')}}" class="option">病害资讯</a>
+    </div>
+
+</div>
+
+</body>
+</html>

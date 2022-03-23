@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>苹果叶部病害DSS</title>
+    <meta name="keywords" content="苹果叶部病害DSS、云识图、图像识别、病害识别"/>
+    <meta name="description" content="苹果叶部病害诊断及防治决策支持系统，结合卷积神经网络提高病害防治水平"/>
+    <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- custom css -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+
+    <style>
+        body,
+        select,
+        form,
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+            -webkit-text-size-adjust: 100%;
+            /*background: url("../static/source/img/apple.png");*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        a {
+            color: #0f0f0f;
+            padding: 0 10px;
+
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #34746a;
+            background: rgba(253, 131, 135, 0.3);
+            text-decoration: none;
+            border-bottom: crimson 2px solid;
+        }
+
+
+        .container {
+            /*background: rgba(250, 245, 245, 0.4);*/
+            margin: 0px auto;
+            height: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            /*box-shadow: 0 2px 5px rgba(50, 66, 149, 0.5);*/
+        }
+
+        .head {
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            height: 100px;
+            float: left;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        .logo a:hover {
+            border: none;
+            background-color: inherit;
+        }
+
+        .menu {
+            height: 100px;
+            float: right;
+            line-height: 100px;
+            font-size: 26px;
+            padding: auto;
+            /* margin-left: 100px; */
+        }
+
+        /*保留*/
+        .menu a {
+            display: inline-block;
+            padding: auto;
+        }
+
+        .center-in-center {
+            font-size: 75px;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        /*#eye {
+        /*    top: 23%;*/
+        /*    left: 32%;*/
+        /*    z-index: 20;*/
+        /*    opacity: 1;*/
+        /*    position: absolute;*/
+        /*    transform: scale(2) rotate(40deg);*/
+        /*    transition: all 2s ease 0s;*/
+        /*    width: 500px;*/
+        /*    height: 500px;*/
+        /*    animation: myfirst 10s linear infinite alternate;*/
+
+        /*}*/
+
+        @keyframes myfirst {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1.5);
+            }
+        }
+
+        /*#eye img {*/
+        /*    width: 500px;*/
+        /*    height: 500px;*/
+        /*}*/
+
+        input {
+            outline-style: none;
+            font-size: 30px;
+            border: 1px solid #c54c4c;
+            border-radius: 3px;
+            /* background: #FFF; */
+            background: rgba(235, 217, 217, 0.8)
+        }
+
+        .select {
+            background-color: lightcoral;
+        }
+    </style>
+
+</head>
+
+<body>
+<!--<div class="container" style="width: 100%">-->
+<div class="header">
+    <div class="head clearfix">
+        <div class="logo">
+            <!--          <a href="./index.html">-->
+            <a href="{{ url_for('index')}}">
+                <img src="../static/source/img/Alogo.png" alt="logo"/>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="{{ url_for('index')}}" class="option select optionNow">首页</a>
+            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+            <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+            <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
+            <a href="{{ url_for('talk')}}" class="option">专家解答</a>
+            <a href="{{ url_for('news')}}" class="option">预防经验</a>
+<!--            <a href="{{ url_for('aboutUs')}}" class="option">关于我们</a>-->
+        </div>
+    </div>
+</div>
+<!-- banner -->
+<!--    <section class="banner_w3lspvt" id="home">-->
+<!--        <div class="csslider infinity" id="slider1">-->
+
+<!--            <div class="banner-top">-->
+<section class="banner_w3lspvt" id="home">
+    <div class="overlay" style="background: url('../static/source/img/3.jpg')">
+        <div class="w3layouts-banner-info text-center">
+            <h3 class="text-wh" style="margin-top: 50px">苹果叶部病害检测</h3>
+            <h4 class="text-wh mx-auto my-4"><b>上传叶子图片进行病害检测</b></h4>
+            <div class="center-in-center">
+                <h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
+                <p class="text-li mx-auto mt-2">
+                    1. What crop to plant here? <br>
+                    2. What fertilizer to use? <br>
+                    3. Which disease do your crop have?<br>
+                    4. How to cure the disease?</p>
+                <!--                <form action="" method=post enctype=multipart/form-data>-->
+                <!--                    <input type=file name=file accept='image/* '>-->
+                <!--                    <br><br>-->
+                <!--                    <input type=submit value="检测">-->
+                <!--                </form>-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!-- //banner -->
+<!-- core values -->
+<section class="core-value py-5" style="height: auto">
+    <div class="py-md-4" style="height: auto; margin-left: 10%;margin-right: 10%">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> About Us</h3>
+        <div class="row core-grids">
+            <div class="col-lg-6 core-left" style="margin-right: 0px">
+                <img src="../static/source/img/core.png" class="img-fluid" alt=""/>
+            </div>
+            <div class="col-lg-6 core-right" style="margin-right: 0px">
+                <h3 class="mt-4">Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase
+                    Profit.</h3>
+                <p class="mt-3">We use state-of-the-art machine learning and deep learning technologies to help you
+                    guide through
+                    the entire farming process. Make informed decisions to understand the demographics of your area,
+                    understand the
+                    factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //core values -->
+
+
+<!-- Products & Services -->
+<section class="blog py-5">
+	<div class="py-md-5" style="height: auto; margin-left: 10%;margin-right: 10%">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Our Services</h3>
+		<div class="row blog-grids">  <!-- bootstrap.css 1306hang-->
+			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">
+				<img src="../static/source/img/s3.jpg" class="img-fluid" alt="" />
+				<a href="{{ url_for('detect') }}">
+					<div class="blog-info">
+
+						<h4>病害检测</h4>
+
+						<p class="mt-2"> 写少一点 </p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
+				<img src="../static/source/img/s2.jpg" class="img-fluid" alt="" />
+				<a href="{{ url_for('surveillance') }}">
+					<div class="blog-info">
+						<h4>信息监测</h4>
+						<p class="mt-2"> 写少一点 </p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
+				<img src="../static/source/img/o果园背景.jpg" class="img-fluid" alt="">
+				<a href="{{ url_for('orchard') }}">
+					<div class="blog-info">
+						<h4>始花期预测</h4>
+						<p class="mt-2"> 写少一点 </p>
+					</div>
+				</a>
+			</div>
+            <div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
+				<img src="../static/source/img/s4.jpg" class="img-fluid" alt="" />
+				<a href="{{ url_for('talk') }}">
+					<div class="blog-info">
+						<h4>专家解答</h4>
+						<p class="mt-2"> 写少一点 </p>
+					</div>
+				</a>
+			</div>
+            <div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
+				<img src="../static/source/img/apple.png" class="img-fluid" alt="" />
+				<a href="{{ url_for('news') }}">
+					<div class="blog-info">
+						<h4>预防经验</h4>
+						<p class="mt-2"> 写少一点 </p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //Products & Services -->
+
+
+<!-- footer -->
+<footer class="text-center py-5" style="height: auto">
+    <img src="../static/source/img/字1.png" alt="">
+    <p>Made by 李承泽&ta的小伙伴</p>
+    <p>&copy; Copyright 2022 NWAFU</p>
+</footer>
+<!--</div>-->
+</body>
+
+</html>

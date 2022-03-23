@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon"/>
+    <title>信息交流</title>
+    <style>
+        body,
+        select,
+        form,
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+            -webkit-text-size-adjust: 100%;
+            /* background: url("../static/source/img/apple.png"); */
+            background: url("../static/source/img/苹果.jpg");
+            background-size: contain;
+            background-repeat: repeat-y;
+            position: relative;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        a {
+            color: #0f0f0f;
+            padding: 0 10px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: #34746a;
+            background: rgba(253, 131, 135, 0.3);
+            text-decoration: none;
+            border-bottom: crimson 2px solid;
+        }
+
+
+        .container {
+            background: rgba(250, 245, 245, 0.7);
+            margin: 0;
+            /* height: 900px; */
+            height: 1600px;
+            width: 100%;
+            position: relative;
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            box-shadow: 0 2px 5px rgba(50, 66, 149, 0.5);
+        }
+
+        .head {
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            height: 100px;
+            float: left;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        .logo a:hover {
+            border: none;
+            background-color: inherit;
+        }
+
+        .menu {
+            height: 100px;
+            float: right;
+            line-height: 100px;
+            font-size: 26px;
+            padding: auto;
+            /* margin-left: 100px; */
+        }
+
+        .menu a {
+            display: inline-block;
+            /* padding: auto; */
+            padding: 0 10px;
+
+        }
+
+        .select {
+            background-color: lightcoral;
+        }
+    </style>
+    <style>
+        .head-title {
+            color: rgb(73, 73, 73);
+            /* background: none 0% 0% / auto repeat scroll padding-box border-box rgb(240, 246, 243); */
+            width: 200px;
+            height: 30px;
+            font-size: 26px;
+            line-height: 30px;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            top: 160px;
+            left: 35%;
+            float: none;
+            display: block;
+            border: 0px none rgb(73, 73, 73);
+            cursor: auto;
+            overflow: visible;
+            box-sizing: content-box;
+            border-radius: 0px;
+            text-decoration: none solid rgb(73, 73, 73);
+            list-style: outside none disc;
+            text-align: start;
+        }
+
+        .channel-item {
+            background: #f9f9f9;
+            height: 220px;
+            width: 600px;
+            position: relative;
+            top: 200px;
+            left: 35%;
+            float: none;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-sizing: content-box;
+            border-radius: 0px;
+            text-decoration: none solid rgb(17, 17, 17);
+            list-style: outside none disc;
+            text-align: start;
+        }
+
+        .channel-item .likes {
+            float: left;
+            margin-right: 19px;
+            padding: 8px 0;
+            width: 48px;
+            line-height: 1.3;
+            text-align: center;
+            font-size: 13px;
+            color: #ca6445;
+            background: #fae9da;
+        }
+
+        .channel-item .bd {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .channel-item h3 {
+            font-size: 15px;
+            margin: 12px 0;
+            line-height: 1.3;
+            font-weight: normal;
+            background: none;
+        }
+
+        .channel-item .block {
+            padding: 10px;
+            color: #999;
+            background: #fff4f4;
+        }
+
+        .pic-wrap img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .paginator {
+            font: 14px Arial, Helvetica, sans-serif;
+            color: rgb(170, 66, 66);
+            margin: 20px 0;
+            line-height: 150%;
+            text-align: center;
+            position: relative;
+            top: 220px;
+            left: 3%;
+            float: none;
+        }
+
+        .paginator .thispage {
+            background-color: #c3af6e;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="head clearfix">
+            <div class="logo">
+                <!--          <a href="./index.html">-->
+                <a href="{{ url_for('index')}}">
+                    <img src="../static/source/img/Alogo.png" alt="logo"/>
+                </a>
+            </div>
+            <div class="menu">
+                 <a href="{{ url_for('index')}}" class="option">首页</a>
+            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+            <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+            <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
+            <a href="{{ url_for('talk')}}" class="option select optionNow">专家解答</a>
+            <a href="{{ url_for('news')}}" class="option">预防经验</a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-search"
+         style="color: rgb(17, 17, 17); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: 280px; height: 30px; font-size: 13px; line-height: 21.06px; margin: 0px; padding: 10px 0px 15px; position: absolute; float: none; inset: 12px 0px 7px 760px; display: block; border: 0px none rgb(17, 17, 17); cursor: auto; overflow: hidden; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(17, 17, 17); list-style: outside none disc; text-align: start;inset: 150px;">
+        <form id="form" action="http://www.nczfw.com" method="get"
+              style="color: rgb(17, 17, 17); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: 280px; height: 30px; font-size: 13px; line-height: 21.06px; margin: 0px; padding: 0px; position: static; float: none; inset: auto; display: block; border: 0px none rgb(17, 17, 17); cursor: auto; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(17, 17, 17); list-style: outside none disc; text-align: start;">
+            <fieldset
+                    style="color: rgb(17, 17, 17); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: 280px; height: 30px; font-size: 13px; line-height: 21.06px; margin: 0px; padding: 0px; position: static; float: none; inset: auto; display: block; border: 0px none rgb(17, 17, 17); cursor: auto; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(17, 17, 17); list-style: outside none disc; text-align: start;">
+                <legend
+                        style="color: rgb(102, 102, 102); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: auto; height: auto; font-size: 13px; line-height: 21.06px; margin: 0px; padding: 0px 5px; position: static; float: none; inset: auto; display: none; border: 0px none rgb(102, 102, 102); cursor: auto; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(102, 102, 102); list-style: outside none disc; text-align: start;">
+                    搜索：
+                </legend>
+
+                <input type="hidden" name="cat" value="1019"
+                       style="color: rgb(0, 0, 0); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: auto; height: auto; font-size: 13px; line-height: normal; margin: 0px 3px 0px 0px; padding: 0px; position: static; float: none; inset: auto; display: none; border: 0px none rgb(0, 0, 0); cursor: default; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(0, 0, 0); list-style: outside none disc; text-align: start;">
+                <label for="inp-query"
+                       style="display: none; color: rgb(187, 187, 187); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: auto; height: auto; font-size: 13px; line-height: 28px; margin: 0px; padding: 0px; position: absolute; float: none; inset: 11px auto auto 11px; border: 0px none rgb(187, 187, 187); cursor: text; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(187, 187, 187); list-style: outside none disc; text-align: start;">小组、话题</label>
+                <div class="inp"
+                     style="color: rgb(17, 17, 17); background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); width: 278px; height: 28px; font-size: 13px; line-height: 21.06px; margin: 0px; padding: 0px; position: static; float: left; inset: auto; display: block; border: 1px solid rgb(225, 233, 225); cursor: text; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(17, 17, 17); list-style: outside none disc; text-align: left;">
+                    <input id="inp-query" name="q" size="22" maxlength="60" value="" placeholder="病害、防治话题"
+                           style="color: rgb(0, 0, 0); background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); width: 242px; height: 28px; font-size: 13px; line-height: normal; margin: 0px; padding: 0px 0px 0px 10px; position: static; float: none; inset: auto; display: inline-block; border: 0px none rgb(0, 0, 0); cursor: text; overflow: visible; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(0, 0, 0); list-style: outside none disc; text-align: left;">
+                </div>
+                <div class="inp-btn"
+                     style="color: rgb(17, 17, 17); background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); width: 30px; height: 28px; font-size: 0px; line-height: 21.06px; margin: 0px; padding: 0px; position: absolute; float: none; inset: 10px 0px 15px 249px; display: block; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(225, 233, 225) rgb(225, 233, 225) rgb(225, 233, 225) rgb(17, 17, 17); cursor: auto; overflow: hidden; box-sizing: content-box; border-radius: 0px; text-decoration: none solid rgb(17, 17, 17); list-style: outside none disc; text-align: start;">
+                    <input type="submit" value="搜索"
+                           style="color: rgba(0, 0, 0, 0); background: url(&quot;https://img3.doubanio.com/f/shire/f71f15922ebd7c0ff0ea0e7a25577529efd8981a/pics/icon/bn_srh_1.png&quot;) 50% 50% / auto no-repeat scroll padding-box border-box rgba(0, 0, 0, 0); width: 30px; height: 28px; font-size: 0px; line-height: 100px; margin: 0px; padding: 0px; position: static; float: none; inset: auto; display: inline-block; border: 0px none rgba(0, 0, 0, 0); cursor: pointer; overflow: hidden; box-sizing: border-box; border-radius: 0px; text-decoration: none solid rgba(0, 0, 0, 0); list-style: outside none disc; text-align: center;">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="head-title"
+    "> 讨论精选
+</div>
+<div class=" channel-item">
+    <div class="likes">435<br>喜欢</div>
+    <div class="bd">
+        <h3><a
+                href="https://b2b.baidu.com/land?url=https%3A%2F%2Fwww.zchui.com%2FproductDetail%2F1871010.html%3Fbdb2b8a2d%3D3444903077415313543&query=%E5%86%9C%E6%9C%BA%E7%BD%91%E6%8B%96%E6%8B%89%E6%9C%BA%E4%BB%B7%E6%A0%BC&lattr=&xzhid=29330327&pi=b2b.s.prod_card.1&category=%E6%9C%BA%E6%A2%B0%E5%B7%A5%E4%B8%9A%3B%E5%86%9C%E7%94%A8%E6%90%AC%E8%BF%90%E6%9C%BA%E6%A2%B0%3B%E6%8B%96%E6%8B%89%E6%9C%BA&fid=67174400%2C1622532231946&iid=8b41b753d2b2aa6aa392c41edb76128c&jid=09392737532968987&prod_type=0">新型农机上线</a>
+        </h3>
+        <div class="block">
+
+            <div class="pic">
+                <div class="pic-wrap">
+                    <img
+                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3928888862,3548581579&fm=199&app=68&f=JPEG?w=750&h=750&s=0EE64882440226FAD701B5BE03004083">
+                </div>
+            </div>
+            <p>新型农机 复合拖拉机 耕地运输多用 仅售...
+            </p>
+        </div>
+        <div class="source">
+
+          <span class="from">来自<a
+                  href="https://b2b.baidu.com/ss?q=%E5%86%9C%E6%9C%BA%E7%BD%91%E6%8B%96%E6%8B%89%E6%9C%BA%E4%BB%B7%E6%A0%BC&from=b2b_straight&srcid=5103&from_restype=product">农机销售网</a></span>
+            <span class="pubtime">昨天19:20</span>
+        </div>
+    </div>
+</div>
+<div class=" channel-item">
+    <div class="likes">527<br>喜欢</div>
+    <div class="bd">
+        <h3><a href="https://www.pig66.com/show-1863-23560-1.html">求助，我家果园今年的斑点落叶病非常严重</a></h3>
+        <div class="block">
+
+            <div class="pic">
+                <div class="pic-wrap">
+                    <img src="http://n.sinaimg.cn/sinakd20210531ac/272/w640h432/20210531/fd44-kquziii6955504.jpg">
+                </div>
+            </div>
+            <p>按照往年的方法治了，但是今年似乎格外严重。有专家朋友们能帮我看看吗？
+            </p>
+        </div>
+        <div class="source">
+
+          <span class="from">来自<a
+                  href="http://k.sina.com.cn/article_6432182314_17f63502a001022vl1.html?display=0&retcode=0">苹果病害</a></span>
+            <span class="pubtime">昨天18:23</span>
+        </div>
+    </div>
+</div>
+<div class=" channel-item">
+    <div class="likes">496<br>喜欢</div>
+    <div class="bd">
+        <h3><a href="https://baijiahao.baidu.com/s?id=1698643917977375419&wfr=spider&for=pc">科普：陕西地区苹果果园常见病</a>
+        </h3>
+        <div class="block">
+
+            <div class="pic">
+                <div class="pic-wrap">
+                    <img src="http://www.kepuchina.cn/xc/201811/W020181113526255738427.jpg">
+                </div>
+            </div>
+            <p>苹果是人民最喜欢的水果之一，苹果树长出优质、高产的苹果能够增加果农的收益。苹果的品质和产量主要取决于苹果树种植技术及病虫害防治的优劣，
+            </p>
+        </div>
+        <div class="source">
+
+            <span class="from">来自<a href="http://www.kepuchina.cn/xc/201811/t20181108_775267.shtml">科普中国</a></span>
+            <span class="pubtime">昨天18:11</span>
+        </div>
+    </div>
+</div>
+<div class=" channel-item">
+    <div class="likes">527<br>喜欢</div>
+    <div class="bd">
+        <h3><a href="https://www.zhihu.com/question/303902422">闪光灯拍出的“萤火虫”</a></h3>
+        <div class="block">
+
+            <div class="pic">
+                <div class="pic-wrap">
+                    <img src="https://img1.baidu.com/it/u=1017007570,2264730939&fm=26&fmt=auto&gp=0.jpg">
+                </div>
+            </div>
+            <p>密恐者现在躲闪还来得及。
+                意外开了闪光灯，拍了一堆蚊子。
+                估计是我见过最漂亮的蚊子了。
+                <br>抓虫子是门学问
+            </p>
+        </div>
+        <div class="source">
+
+            <span class="from">来自<a href="https://www.zhihu.com/question/303902422">昆虫捕捉</a></span>
+            <span class="pubtime">昨天17:23</span>
+        </div>
+    </div>
+</div>
+
+
+<div class=" channel-item">
+    <div class="likes">423<br>喜欢</div>
+    <div class="bd">
+        <h3><a
+                href="https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1622532145746_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&sid=&word=%E6%A1%83%E8%8A%B1">每次开花都会忍不住拍拍拍</a>
+        </h3>
+        <div class="block">
+
+            <div class="pic">
+                <div class="pic-wrap">
+                    <img
+                            src="https://imgsa.baidu.com/forum/w%3D580%3B/sign=da6f427d7ff082022d9291377bc0faed/8601a18b87d6277fe90b946624381f30e924fc57.jpg">
+                </div>
+            </div>
+            <p>春天的花开了，农忙之中捕捉美好。
+            </p>
+        </div>
+        <div class="source">
+
+            <span class="from">来自<a href="https://www.douban.com/group/699356/">无用美学小组</a></span>
+            <span class="pubtime">昨天17:11</span>
+        </div>
+    </div>
+</div>
+
+<div class="paginator">
+      <span class="prev">
+        &lt;前页
+      </span>
+    <span class="thispage" data-total-page="431">1</span>
+    <a href="?start=30">2</a>
+    <a href="?start=60">3</a>
+    <a href="?start=90">4</a>
+    <a href="?start=120">5</a>
+    <a href="?start=150">6</a>
+    <a href="?start=180">7</a>
+    <a href="?start=210">8</a>
+    <a href="?start=240">9</a>
+    <span class="break">...</span>
+    <a href="?start=12870">430</a>
+    <a href="?start=12900">431</a>
+    <span class="next">
+        <link rel="next" href="?start=30">
+        <a href="?start=30">后页&gt;</a>
+      </span>
+
+</div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div class="historyTable">
+<div id="datetime_div">2022-01-29 12:00:00 的瞬时数据 (间隔10分钟自动更新)</div>
+<table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="tableRegion">    
+
+    <tbody>
+    <tr class="even header">
+        <td width="25%">指标</td>
+        <td width="25%">数值</td>
+      	<td width="25%">指标</td>
+        <td width="25%">数值</td>
+    </tr>
+    <tr class="odd">
+        <td width="25%">空气温度(℃)</td>
+        <td width="25%"><span id="real_taAvg">-0.873</span></td>
+      	<td width="25%">土壤温度(℃)</td>
+        <td width="25%"><span id="real_taSoilAvg">1.801</span></td>
+    </tr>
+    <tr class="even">
+      	<td width="25%">空气湿度(%RH)</td>
+        <td width="25%"><span id="real_rhAvg">65.09</span></td>
+        <td width="25%">土壤湿度(%RH)</td>
+        <td width="25%"><span id="real_vwcAvg">2361.000</span></td>
+    </tr>
+    <tr class="odd">
+        <td width="25%">累积降雨量(mm)</td>
+        <td width="25%"><span id="real_rainTot">0.000</span></td>
+        <td width="25%">水汽压</td>
+        <td width="25%"><span id="real_pvaporAvg">0.373</span></td>
+    </tr>
+    <tr class="even">
+        <td width="25%">风向(o)</td>
+        <td width="25%"><span id="real_wd">28</span></td>
+        <td width="25%">风速(m/s)</td>
+        <td width="25%"><span id="real_wsAvg">2.428</span></td>
+    </tr>
+    <tr class="odd">
+        <td width="25%">总辐射(W/m2)</td>
+        <td width="25%"><span id="real_slrwAvg">486.900</span></td>
+        <td width="25%">数采面板温度(℃)</td>
+        <td width="25%"><span id="real_ptemp">7.29</span></td>
+    </tr>
+    <tr class="even">
+        <td width="25%">电池电压最小值</td>
+        <td width="25%"><span id="real_battVoltMin">14.47</span></td>
+        <td width="25%">&nbsp;</td>
+        <td width="25%"><span id="real_blank">&nbsp;</span></td>
+    </tr>
+    </tbody>
+</table>
+</div>

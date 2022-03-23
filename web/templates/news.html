@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="../static/source/img/Alogo.png"
+      type="image/x-icon"
+    />
+    <title>预防经验</title>
+    <style>
+      body,
+      select,
+      form,
+      input,
+      div {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+        -webkit-text-size-adjust: 100%;
+        /* background: url("../static/source/img/apple.png"); */
+        /* background: url("../static/source/img/高清果树.jpg"); */
+        background-color: rgba(220, 247, 226, 0.5);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+      .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+
+      .clearfix {
+        *zoom: 1;
+      }
+
+      a {
+        color: #0f0f0f;
+        padding: 0 10px;
+        text-decoration: none;
+      }
+
+      .menu a:hover {
+        color: #34746a;
+        background: rgba(253, 131, 135, 0.3);
+        text-decoration: none;
+        border-bottom: crimson 2px solid;
+      }
+
+      .container {
+        background: rgba(250, 245, 245, 0.5);
+        margin: 0;
+        height: 1500px;
+        width: 100%;
+        position: relative;
+      }
+
+      .header {
+        width: 100%;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 30;
+        box-shadow: 0 2px 5px rgba(50, 66, 149, 0.5);
+      }
+
+      .head {
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .logo {
+        height: 100px;
+        float: left;
+      }
+
+      .logo img {
+        height: 100px;
+      }
+
+      .logo a:hover {
+        border: none;
+        background-color: inherit;
+      }
+
+      .menu {
+        height: 100px;
+        float: right;
+        line-height: 100px;
+        font-size: 26px;
+        padding: auto;
+        /* margin-left: 100px; */
+      }
+
+      .menu a {
+        display: inline-block;
+        /* padding: auto; */
+        padding: 0 10px;
+      }
+
+      .select {
+        background-color: lightcoral;
+      }
+    </style>
+    <style>
+      .heng {
+        height: 150px;
+        position: relative;
+        top: 120px;
+        left: 180px;
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 1030px;
+      }
+
+      .heng-img a img {
+        height: 150px;
+        width: 225px;
+        position: relative;
+        top: 0px;
+        padding: 0px;
+        left: 0px;
+      }
+
+      .heng-link {
+        height: 150px;
+        width: 750px;
+        /* background-color: rgba(255, 255, 255, 0.7); */
+        font-size: 30px;
+        position: relative;
+        top: -150px;
+        left: 245px;
+        line-height: 45px;
+        margin-left: 20px;
+      }
+
+      .heng-link p {
+        font-size: 15px;
+        line-height: initial;
+        color: lightslategrey;
+        margin-left: 10px;
+      }
+    </style>
+    <style>
+      img,
+      a img {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+        image-rendering: optimizeQuality;
+      }
+
+      .diseasegroup {
+        clear: both;
+        position: relative;
+        top: 150px;
+        left: 10%;
+        width: 80%;
+        height: 1200px;
+        overflow: hidden;
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .span1of3 {
+        width: 28.2%;
+        width: 38.2%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 100px;
+      }
+      .col-mentorship {
+        display: block;
+        float: left;
+        margin: 1% 0 1% 5.6%;
+      }
+
+      .card-top {
+        background: #f9f9fa;
+        border-left: 1px solid #8493a6 !important;
+        border-right: 1px solid #8493a6 !important;
+        border-top: 1px solid #8493a6 !important;
+        border-radius: 6px;
+      }
+
+      .ribbon {
+        width: 125px;
+        height: 125px;
+        overflow: hidden;
+        position: absolute;
+      }
+
+      .ribbon span {
+        position: absolute;
+        display: block;
+        width: 200px;
+        background-color: #454d57;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .ribbon-top-left span {
+        right: -25px;
+        top: 35px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      .mentorship-logo {
+        margin: 20px 0 0 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
+        background-color: #fff;
+        border: 1px solid #707070;
+      }
+
+      .mentorship-name-field {
+        margin-top: 0;
+        min-height: 40px;
+        line-height: 20px;
+      }
+
+      .mentorship-desc {
+        color: #818181;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 0 20px 20px 20px;
+        min-height: 50px;
+      }
+
+      .footer {
+        padding: 25px 0;
+        background: #f9f9fa;
+        border-left: 1px solid #8493a6 !important;
+        border-right: 1px solid #8493a6 !important;
+        border-bottom: 1px solid #8493a6 !important;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      .apply-donate {
+        width: 180px;
+        line-height: 20px;
+        color: #189aca !important;
+        font-size: 14px !important;
+        font-weight: 600;
+        font-style: normal;
+        text-decoration: none !important;
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        padding: 5px;
+        cursor: pointer;
+        border: 1px solid #189aca !important;
+        display: inline-block;
+      }
+
+      .badge {
+        margin-bottom: -20px;
+        margin-top: -20px;
+        background: #f9f9fa;
+        height: 20px;
+        border-left: 1px solid #8493a6 !important;
+        border-right: 1px solid #8493a6 !important;
+      }
+
+      .card-bottom {
+        border: 1px solid #8493a6 !important;
+        background: #eaebee;
+        padding: 20px;
+        border-top: 1px solid #ced2da;
+        height: 150px;
+      }
+
+      .flex {
+        margin: 0px 0px 10px 0px;
+        line-height: 1.2;
+      }
+      button {
+        appearance: auto;
+        text-rendering: auto;
+        color: -internal-light-dark(black, white);
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        background-color: -internal-light-dark(
+          rgb(239, 239, 239),
+          rgb(59, 59, 59)
+        );
+        box-sizing: border-box;
+        margin: 0em;
+        font: 500 14px Arial;
+        padding: 2px 10px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: -internal-light-dark(
+          rgb(118, 118, 118),
+          rgb(133, 133, 133)
+        );
+        border-image: initial;
+        line-height: 1.2;
+      }
+
+      .left-btn.active,
+      .right-btn.active {
+        background-color: #189aca;
+        color: #fff;
+      }
+
+      .left-btn {
+        background-color: #fff;
+        border: 1px solid #8493a6 !important;
+        box-shadow: none;
+        color: #5a5656;
+        font-size: 14px;
+        height: 25px;
+        padding: 5px 5px 5px 10px;
+        border-radius: 18px 0 0 18px;
+        text-decoration: none;
+        margin-right: -5px;
+      }
+
+      .right-btn {
+        border-radius: 0 18px 18px 0;
+        background-color: #fff;
+        border: 1px solid #8493a6 !important;
+        box-shadow: none;
+        color: #5a5656;
+        text-decoration: none;
+        font-size: 14px;
+        height: 25px;
+        padding: 5px 10px 5px 5px;
+      }
+
+      .bottom-title {
+        font-size: 12px;
+        text-align: left;
+        color: #5a5656;
+        text-transform: capitalize;
+        font-weight: 700;
+        opacity: 0.8;
+        margin: 0;
+        padding: 0;
+        line-height: 14px;
+      }
+
+      .req-skills {
+        text-align: left;
+        line-height: 12px;
+      }
+
+      .skills-bubble {
+        color: #5a5656;
+        font-size: 12px;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        text-align: center;
+        background: #fff;
+        border-radius: 7px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 5px;
+        margin: 5px 0 0 5px;
+        display: inline-block;
+      }
+
+      .bottom-portion {
+        margin-top: 15px;
+      }
+
+      .bottom-title {
+        font-size: 12px;
+        text-align: left;
+        color: #5a5656;
+        text-transform: capitalize;
+        font-weight: 700;
+        opacity: 0.8;
+        margin: 0;
+        padding: 0;
+        line-height: 14px;
+      }
+
+      .section-mentorship {
+        clear: both;
+        padding: 0px;
+        margin: 0px;
+      }
+      .section-mentorship img {
+        height: 100px;
+        margin: 5px 10px;
+      }
+      .group-mentorship:before,
+      .group-mentorship:after {
+        content: "";
+        display: table;
+      }
+
+      .term-1,
+      .term-2 {
+        color: #5a5656;
+        font-size: 8px;
+        line-height: 16px;
+        font-weight: 600;
+        font-style: normal;
+        text-decoration: none;
+        text-align: center;
+        background: #fff;
+        border-radius: 5px;
+        padding: 10px 5px;
+      }
+
+      .display-none {
+        display: none;
+      }
+
+      .display {
+        display: block;
+      }
+
+      .plus {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 10px;
+        line-height: 12px;
+        text-align: center;
+        font-weight: 600;
+        background-color: #fff;
+        cursor: default;
+        display: inline-block;
+        /* float: left; */
+        margin-top: 5px;
+        margin-left: -5px;
+      }
+    </style>
+
+<!--    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">-->
+    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- custom css -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="head clearfix">
+        <div class="logo">
+<!--          <a href="./index.html">-->
+            <a href="{{ url_for('index')}}">
+            <img src="../static/source/img/Alogo.png" alt="logo" />
+          </a>
+        </div>
+        <div class="menu">
+            <a href="{{ url_for('index')}}" class="option">首页</a>
+            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+            <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+            <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
+            <a href="{{ url_for('talk')}}" class="option">专家解答</a>
+            <a href="{{ url_for('news')}}" class="option select optionNow">预防经验</a>
+        </div>
+      </div>
+      </div>
+      <div class="heng" style="margin-left: 3%">
+        <div class="heng-img">
+          <a href="https://new.nongyao001.com/show-127914.html"
+            ><img src="../static/source/img/o果园背景.jpg" alt=""
+          /></a>
+        </div>
+        <div class="heng-link">
+          <a href="https://new.nongyao001.com/show-127914.html"
+            >果园防治虫害有妙招</a
+          >
+          <p>
+            防治病虫。清园，对于前一年清园工作没有结束的，要抓紧完成。将杂草、落叶、残枝、僵果、废旧果袋、
+            剪除的病虫枝及刮掉的老翘皮等全部清理出果园，集中深埋或烧毁，消灭越冬病虫源，降低病虫害基数。喷布石硫合剂，
+            在苹果树萌芽期，喷布3～5波美度石硫合剂，可以防治苹果干腐病、苹果白粉病、苹果轮纹病、苹果炭疽病、
+            苹果树腐烂病及山楂红蜘蛛、介壳虫等多种病虫害，对控制全年病虫害有很大作用，喷药要求……
+          </p>
+        </div>
+      </div>
+      <div class="diseasegroup">
+        <div class="col-mentorship span1of3">
+          <div class="card-top">
+            <div class="ribbon ribbon-top-left"><span>锈病</span></div>
+            <img
+              class="mentorship-logo"
+              id="id0-mentorships-logo"
+              src="http://www.nczfw.com/zb_users/upload/2019/05/20190501164622_77445.jpg"
+            />
+            <div class="mentorship-name-field">
+              <a
+                class="mentorship-name"
+                href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E9%94%88%E7%97%85/4170277?fr=aladdin"
+                id="id0-mentorships-name"
+                >锈病</a
+              >
+            </div>
+            <div class="mentorship-desc" id="id0-mentorships-desc">
+              锈病主要危害苹果植株叶片，也会危害植株幼嫩地方位置，比如嫩枝、幼果以及果柄等地方位置...
+            </div>
+          </div>
+          <a id="id0-mentorships-badgeLink" href="#">
+            <div class="badge" id="id0-mentorships-badge"></div>
+          </a>
+          <div class="card-bottom">
+            <div class="flex">
+              <button class="left-btn box-0 active" href="">发病症状</button>
+              <button class="right-btn box-0" href="">防治办法</button>
+            </div>
+            <!-- FIX BOX -->
+            <div class="first-box box-0">
+              <div class="bottom-title">发病描述及条件</div>
+              <div class="req-skills" id="id0-mentorships-skills">
+                <span class="skills-bubble">橘红色的小斑点</span
+                ><span class="skills-bubble">边缘为红色</span
+                ><span class="skills-bubble">黄色绒毛</span
+                ><span class="skills-bubble">多雨多风</span>
+              </div>
+              <div class="bottom-title bottom-portion">发病规律</div>
+              <div class="section-mentorship group-mentorship">
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-1">
+                    <div class="term-date-1" id="id0-mentorships-term-1">
+                      <div>苹果锈病病原：山田胶锈菌。</div>
+                      <div>&nbsp;</div>
+                      <div>借风力传播到苹果植株上，最远能达50干米。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-2" id="id0-term-2" style="display: none">
+                    <div class="term-date-2" id="id0-mentorships-term-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END OF FIRST BOX -->
+            <!-- SECOND BOX -->
+            <div class="second-box box-0">
+              <div class="section-mentorship group-mentorship">
+                <img
+                  src="http://www.nczfw.com/zb_users/upload/2019/05/20190501164622_77445.jpg"
+                  alt="锈病病斑"
+                />
+              </div>
+              <div>
+                <a href="http://www.nczfw.com/shuiguozhongzhi/5417.html"
+                  >防治办法</a
+                >
+              </div>
+
+              <!-- END OF SECOND BOX -->
+            </div>
+          </div>
+          <div class="footer">
+            <a
+              href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E9%94%88%E7%97%85/4170277?fr=aladdin"
+              class="apply-donate adBtn box-0 apply-0"
+              >了解详情</a
+            >
+          </div>
+        </div>
+        <div class="col-mentorship span1of3">
+          <div class="card-top">
+            <div class="ribbon ribbon-top-left"><span>黑星病</span></div>
+            <img
+              class="mentorship-logo"
+              id="id0-mentorships-logo"
+              src="https://img0.baidu.com/it/u=2196040913,1761224293&fm=26&fmt=auto&gp=0.jpg"
+            />
+            <div class="mentorship-name-field">
+              <a
+                class="mentorship-name"
+                href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E9%BB%91%E6%98%9F%E7%97%85/10619388?fr=aladdin"
+                id="id0-mentorships-name"
+                >黑星病</a
+              >
+            </div>
+            <div class="mentorship-desc" id="id0-mentorships-desc">
+              苹果黑星病是世界各苹果产区的重要病害，严重影响苹果品质、产量和贮藏，商品果比例降低。果实从膨大期开始发病，膨大后期发病最重，成熟期发病较少...
+            </div>
+          </div>
+          <a id="id0-mentorships-badgeLink" href="#">
+            <div class="badge" id="id0-mentorships-badge"></div>
+          </a>
+          <div class="card-bottom">
+            <div class="flex">
+              <button class="left-btn box-1 active" href="">发病症状</button>
+              <button class="right-btn box-1" href="">防治办法</button>
+            </div>
+            <!-- FIX BOX -->
+            <div class="first-box box-1">
+              <div class="bottom-title">发病描述及条件</div>
+              <div class="req-skills" id="id0-mentorships-skills">
+                <span class="skills-bubble">黑褐色长椭圆形</span
+                ><span class="skills-bubble">花瓣褪色</span
+                ><span class="skills-bubble">黑色霉状物</span
+                ><span class="skills-bubble">畸形果</span>
+              </div>
+              <div class="bottom-title bottom-portion">发病规律</div>
+              <div class="section-mentorship group-mentorship">
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-1">
+                    <div class="term-date-1" id="id0-mentorships-term-1">
+                      <div>降雨早、雨量大的年份发病重。</div>
+                      <div>
+                        密度过大，通风、透光条件不好，病菌极易传播蔓延。着露时间长的枝条易发病。
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-2" id="id0-term-2" style="display: none">
+                    <div class="term-date-2" id="id0-mentorships-term-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END OF FIRST BOX -->
+            <!-- SECOND BOX -->
+            <div class="second-box box-1">
+              <div class="section-mentorship group-mentorship">
+                <img
+                  src="https://img0.baidu.com/it/u=2196040913,1761224293&fm=26&fmt=auto&gp=0.jpg"
+                  alt="黑星病病斑"
+                />
+              </div>
+              <div>
+                <a href="https://www.sohu.com/a/342801921_120044303"
+                  >防治办法</a
+                >
+              </div>
+
+              <!-- END OF SECOND BOX -->
+            </div>
+          </div>
+          <div class="footer">
+            <a
+              href="https://baike.baidu.com/item/%E9%BB%91%E6%98%9F%E7%97%85/11036088?fr=aladdin"
+              class="apply-donate adBtn box-1 apply-1"
+              >了解详情</a
+            >
+          </div>
+        </div>
+        <div class="col-mentorship span1of3">
+          <div class="card-top">
+            <div class="ribbon ribbon-top-left"><span>褐斑病</span></div>
+            <img
+              class="mentorship-logo"
+              id="id0-mentorships-logo"
+              src="http://www.nczfw.com/zb_users/upload/imges/20191014/108064954_1.jpg"
+            />
+            <div class="mentorship-name-field">
+              <a
+                class="mentorship-name"
+                href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E8%A4%90%E6%96%91%E7%97%85"
+                id="id0-mentorships-name"
+                >褐斑病</a
+              >
+            </div>
+            <div class="mentorship-desc" id="id0-mentorships-desc">
+              夏、秋高温高湿，病菌繁殖量大，发病周期减少，秋梢地方位置叶片病斑迅速增加，一片病叶上常有病斑10-20个，多斑融合成不规则大斑，叶即穿孔或破碎，生长停滞，枯焦掉下
+              ...
+            </div>
+          </div>
+          <a id="id0-mentorships-badgeLink" href="#">
+            <div class="badge" id="id0-mentorships-badge"></div>
+          </a>
+          <div class="card-bottom">
+            <div class="flex">
+              <button class="left-btn box-2 active" href="">发病症状</button>
+              <button class="right-btn box-2" href="">防治办法</button>
+            </div>
+            <!-- FIX BOX -->
+            <div class="first-box box-2">
+              <div class="bottom-title">发病描述及条件</div>
+              <div class="req-skills" id="id0-mentorships-skills">
+                <span class="skills-bubble">针芒型</span
+                ><span class="skills-bubble">同心轮纹型</span
+                ><span class="skills-bubble">混合型</span
+                ><span class="skills-bubble">边缘绿色不整齐</span>
+              </div>
+              <div class="bottom-title bottom-portion">发病规律</div>
+              <div class="section-mentorship group-mentorship">
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-1">
+                    <div class="term-date-1" id="id0-mentorships-term-1">
+                      <div>
+                        春季苹果展叶后，雨水多、降雨早、雨日多，或空气同比湿度在70%以上时，田间发病早，病叶率增长快。
+                      </div>
+                      <!-- <div> &nbsp;</div>
+                    <div>借风力传播到苹果植株上，最远能达50干米。</div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-2" id="id0-term-2" style="display: none">
+                    <div class="term-date-2" id="id0-mentorships-term-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END OF FIRST BOX -->
+            <!-- SECOND BOX -->
+            <div class="second-box box-2">
+              <div class="section-mentorship group-mentorship">
+                <img
+                  src="http://www.nczfw.com/zb_users/upload/imges/20191014/108064954_1.jpg"
+                  alt="褐斑病病斑"
+                />
+              </div>
+              <div>
+                <a href="http://www.nczfw.com/zhongzhi/17490.html">防治办法</a>
+              </div>
+
+              <!-- END OF SECOND BOX -->
+            </div>
+          </div>
+          <div class="footer">
+            <a
+              href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E8%A4%90%E6%96%91%E7%97%85"
+              class="apply-donate adBtn box-2 apply-2"
+              >了解详情</a
+            >
+          </div>
+        </div>
+        <div class="col-mentorship span1of3">
+          <div class="card-top">
+            <div class="ribbon ribbon-top-left"><span>斑点落叶病</span></div>
+            <img
+              class="mentorship-logo"
+              id="id0-mentorships-logo"
+              src="https://img0.baidu.com/it/u=3651471465,2100056821&fm=26&fmt=auto&gp=0.jpg"
+            />
+            <div class="mentorship-name-field">
+              <a
+                class="mentorship-name"
+                href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E6%96%91%E7%82%B9%E8%90%BD%E5%8F%B6%E7%97%85/4170222"
+                id="id0-mentorships-name"
+                >斑点落叶病</a
+              >
+            </div>
+            <div class="mentorship-desc" id="id0-mentorships-desc">
+              斑点落叶病是近10多年发展起来的一种病害，主要危害苹果叶片，其次也为害嫩梢和果实。严重时常造成苹果早期落叶和树势衰弱，影响产量和花芽形成，是目前我国各苹果产区的主要病害之一...
+            </div>
+          </div>
+          <a id="id0-mentorships-badgeLink" href="#">
+            <div class="badge" id="id0-mentorships-badge"></div>
+          </a>
+          <div class="card-bottom">
+            <div class="flex">
+              <button class="left-btn box-3 active" href="">发病症状</button>
+              <button class="right-btn box-3" href="">防治办法</button>
+            </div>
+            <!-- FIX BOX -->
+            <div class="first-box box-3">
+              <div class="bottom-title">发病描述及条件</div>
+              <div class="req-skills" id="id0-mentorships-skills">
+                <span class="skills-bubble">褐色小点逐渐扩大</span
+                ><span class="skills-bubble">边缘为紫褐色</span
+                ><span class="skills-bubble">病斑红褐色</span
+                ><span class="skills-bubble">中后期病斑变灰</span>
+              </div>
+              <div class="bottom-title bottom-portion">发病规律</div>
+              <div class="section-mentorship group-mentorship">
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-1">
+                    <div class="term-date-1" id="id0-mentorships-term-1">
+                      <div>
+                        在温湿度适宜的条件下,病菌孢子粘着在嫩叶片上,形成病斑后产生大量菌丝体。降雨多的年份,病菌孢子可造成多次侵染,果树感病指数高,危害范围大。
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-mentorship span_1_of_2-mentorship">
+                  <div class="term-2" id="id0-term-2" style="display: none">
+                    <div class="term-date-2" id="id0-mentorships-term-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END OF FIRST BOX -->
+            <!-- SECOND BOX -->
+            <div class="second-box box-3">
+              <div class="section-mentorship group-mentorship">
+                <img
+                  src="https://img0.baidu.com/it/u=3651471465,2100056821&fm=26&fmt=auto&gp=0.jpg"
+                  alt="斑点落叶病病斑"
+                />
+              </div>
+              <div>
+                <a href="http://www.haonongzi.com/news/20171215/163257.html"
+                  >防治办法</a
+                >
+              </div>
+
+              <!-- END OF SECOND BOX -->
+            </div>
+          </div>
+          <div class="footer">
+            <a
+              href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E6%96%91%E7%82%B9%E8%90%BD%E5%8F%B6%E7%97%85/4170222"
+              class="apply-donate adBtn box-3 apply-3"
+              >了解详情</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- footer -->
+<footer class="text-center py-5" style="height: auto;text-align: center">
+    <img src="../static/source/img/字1.png" alt="">
+    <p>Made by 李承泽&ta的小伙伴</p>
+    <p>&copy; Copyright 2022 NWAFU</p>
+</footer>
+  </body>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+  <script>
+    jQuery(document).ready(function ($) {
+      // BUTTON LOGIC FOR PROJECTS
+      $(function () {
+        $(".left-btn.box-0").addClass("active");
+        $(".second-box.box-0").addClass("display-none");
+        $(".left-btn.box-1").addClass("active");
+        $(".second-box.box-1").addClass("display-none");
+        $(".left-btn.box-2").addClass("active");
+        $(".second-box.box-2").addClass("display-none");
+        $(".left-btn.box-3").addClass("active");
+        $(".second-box.box-3").addClass("display-none");
+      });
+      //  FIRST BUTTONS
+      $(".right-btn.box-0").click(function () {
+        if ($(".left-btn.box-0").hasClass("active")) {
+          $(".left-btn.box-0").removeClass("active");
+          $(".right-btn.box-0").addClass("active");
+          $(".first-box.box-0").addClass("display-none");
+          $(".first-box.box-0").removeClass("display");
+          $(".second-box.box-0").addClass("display");
+        }
+      });
+
+      $(".left-btn.box-0").click(function () {
+        if ($(".right-btn.box-0").hasClass("active")) {
+          $(".right-btn.box-0").removeClass("active");
+          $(".left-btn.box-0").addClass("active");
+
+          $(".first-box.box-0").addClass("display");
+          $(".second-box.box-0").removeClass("display");
+          $(".second-box.box-0").addClass("display-none");
+        }
+      });
+
+      //  SECOND BUTTONS
+      $(".right-btn.box-1").click(function () {
+        if ($(".left-btn.box-1").hasClass("active")) {
+          $(".left-btn.box-1").removeClass("active");
+          $(".right-btn.box-1").addClass("active");
+          $(".first-box.box-1").addClass("display-none");
+          $(".first-box.box-1").removeClass("display");
+          $(".second-box.box-1").addClass("display");
+        }
+      });
+
+      $(".left-btn.box-1").click(function () {
+        if ($(".right-btn.box-1").hasClass("active")) {
+          $(".right-btn.box-1").removeClass("active");
+          $(".left-btn.box-1").addClass("active");
+
+          $(".first-box.box-1").addClass("display");
+          $(".second-box.box-1").removeClass("display");
+          $(".second-box.box-1").addClass("display-none");
+        }
+      });
+
+      //  THIRD BUTTONS
+      $(".right-btn.box-2").click(function () {
+        if ($(".left-btn.box-2").hasClass("active")) {
+          $(".left-btn.box-2").removeClass("active");
+          $(".right-btn.box-2").addClass("active");
+          $(".first-box.box-2").addClass("display-none");
+          $(".first-box.box-2").removeClass("display");
+          $(".second-box.box-2").addClass("display");
+        }
+      });
+
+      $(".left-btn.box-2").click(function () {
+        if ($(".right-btn.box-2").hasClass("active")) {
+          $(".right-btn.box-2").removeClass("active");
+          $(".left-btn.box-2").addClass("active");
+
+          $(".first-box.box-2").addClass("display");
+          $(".second-box.box-2").removeClass("display");
+          $(".second-box.box-2").addClass("display-none");
+        }
+      });
+
+      //  FOURTH BUTTONS
+      $(".right-btn.box-3").click(function () {
+        if ($(".left-btn.box-3").hasClass("active")) {
+          $(".left-btn.box-3").removeClass("active");
+          $(".right-btn.box-3").addClass("active");
+          $(".first-box.box-3").addClass("display-none");
+          $(".first-box.box-3").removeClass("display");
+          $(".second-box.box-3").addClass("display");
+        }
+      });
+
+      $(".left-btn.box-3").click(function () {
+        if ($(".right-btn.box-3").hasClass("active")) {
+          $(".right-btn.box-3").removeClass("active");
+          $(".left-btn.box-3").addClass("active");
+
+          $(".first-box.box-3").addClass("display");
+          $(".second-box.box-3").removeClass("display");
+          $(".second-box.box-3").addClass("display-none");
+        }
+      });
+    });
+  </script>
+</html>
