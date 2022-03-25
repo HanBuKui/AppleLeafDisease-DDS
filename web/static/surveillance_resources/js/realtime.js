@@ -48,7 +48,7 @@ function initCharts() {
             "showBorder": "0",
             "thmFillColor": "#FF5904"
         },
-        "value": "-10"
+        "value": "10"
     };
 
     // Chart of Thermometer  空气温度

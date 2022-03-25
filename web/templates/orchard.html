@@ -2,308 +2,280 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon" />
-  <title>苹果始花期预测
-  </title>
-  <style>
-    body,
-    select,
-    form,
-    input,
-    ul,
-    li .container {
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./style.css">
+    <title>苹果始花期预测
+    </title>
+    <style>
+        body,
+        select,
+        form,
+        input,
+        ul,
+        li .container {
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
-      -webkit-text-size-adjust: 100%;
-      /* background: url("../static/source/img/apple.png"); */
-      /* background: url("../static/source/img/test.jpg"); */
-      background-color: rgba(50, 149, 80, 0.5);
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: relative;
-    }
+        body {
+            font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+            -webkit-text-size-adjust: 100%;
+            /* background: url("../static/source/img/apple.png"); */
+            /* background: url("../static/source/img/test.jpg"); */
+            background-color: rgba(50, 149, 80, 0.5);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
 
-    .clearfix:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden;
-    }
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
 
-    .clearfix {
-      *zoom: 1;
-    }
+        .clearfix {
+            *zoom: 1;
+        }
 
-    a {
-      color: #0f0f0f;
-      padding: 0 10px;
-      text-decoration: none;
-    }
+        a {
+            color: #0f0f0f;
+            padding: 0 10px;
+            text-decoration: none;
+        }
 
-    .menu a:hover {
-      color: #34746a;
-      background: rgba(253, 131, 135, 0.3);
-      text-decoration: none;
-      border-bottom: crimson 2px solid;
-    }
+        .menu a:hover {
+            color: #34746a;
+            background: rgba(253, 131, 135, 0.3);
+            text-decoration: none;
+            border-bottom: crimson 2px solid;
+        }
 
-    .container {
-      background: rgba(250, 245, 245, 0.6);
-      margin: 0;
-      height: 900px;
-      width: 100%;
-      position: relative;
-    }
+        .container {
+            background: rgba(250, 245, 245, 0.6);
+            margin: 0;
+            height: 900px;
+            width: 100%;
+            position: relative;
+        }
 
-    .header {
-      width: 100%;
-      height: 100px;
-      background: rgba(255, 255, 255, 0.7);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 30;
-      box-shadow: 0 2px 5px rgba(50, 66, 149, 0.5);
-    }
+        .header {
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            box-shadow: 0 2px 5px rgba(50, 66, 149, 0.5);
+        }
 
-    .head {
-      width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
+        .head {
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
 
-    .logo {
-      height: 100px;
-      float: left;
-    }
+        .logo {
+            height: 100px;
+            float: left;
+        }
 
-    .logo img {
-      height: 100px;
-    }
+        .logo img {
+            height: 100px;
+        }
 
-    .logo a:hover {
-      border: none;
-      background-color: inherit;
-    }
+        .logo a:hover {
+            border: none;
+            background-color: inherit;
+        }
 
-    .menu {
-      height: 100px;
-      float: right;
-      line-height: 100px;
-      font-size: 26px;
-      padding: auto;
-      /* margin-left: 100px; */
-    }
+        .menu {
+            height: 100px;
+            float: right;
+            line-height: 100px;
+            font-size: 26px;
+            padding: auto;
+            /* margin-left: 100px; */
+        }
 
-    .menu a {
-      display: inline-block;
-      /* padding: auto; */
-      padding: 0 10px;
-    }
+        .menu a {
+            display: inline-block;
+            /* padding: auto; */
+            padding: 0 10px;
+        }
 
-    .select {
-      background-color: lightcoral;
-    }
-  </style>
-  <style>
-    .set_form {
-      background: url(../static/source/img/input_bg.png);
-      /* background-color: rgba(250, 245, 245, 0.6); */      
-      width: 50%;
-      height: 580px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 120px;
-      left: 25%;
-      /* border: 1px solid;  */
-      border-radius: 10%;
-      text-align: center;
-    }
+        .select {
+            background-color: lightcoral;
+        }
+    </style>
+    <style>
+        .set_form {
+            background: url(../static/source/img/input_bg.png);
+            /* background-color: rgba(250, 245, 245, 0.6); */
+            width: 50%;
+            height: 580px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 120px;
+            left: 25%;
+            /* border: 1px solid;  */
+            border-radius: 10%;
+            text-align: center;
+        }
 
-    input {
-      line-height: 2;
-      border-radius: 5px;
-      border: none;
-      background: #daf4ff;
-      box-shadow: 0px 2px 3px #bce2fc inset;
-      font-size: 16px;
-      margin:40px;
-    }
+        input {
+            line-height: 2;
+            border-radius: 5px;
+            border: none;
+            background: #daf4ff;
+            box-shadow: 0px 2px 3px #bce2fc inset;
+            font-size: 16px;
+            margin: 40px;
+        }
 
-    form {
-      text-align: left;
-      line-height: 3;
-      font-size: 1.2em;
+        form {
+            text-align: left;
+            line-height: 3;
+            font-size: 1.2em;
 
-    }
+        }
 
-    form>h3,
-    form>h4 {
-      text-align: center;
-    }
+        form > h3,
+        form > h4 {
+            text-align: center;
+        }
 
-    form>ul>li {
-      text-align: center;
-      list-style: none;
-      line-height: 25px;
-      font-size: 1.2em;
-      padding: 12px 0px;
-    }
+        form > ul > li {
+            text-align: center;
+            list-style: none;
+            line-height: 25px;
+            font-size: 1.2em;
+            padding: 12px 0px;
+        }
 
-    h3 {
-      color: rgb(34, 87, 83);
-      font: bold 40px/44px '微软雅黑';
-      text-align: center;
-    }
+        h3 {
+            color: rgb(34, 87, 83);
+            font: bold 40px/44px '微软雅黑';
+            text-align: center;
+        }
 
-    h4 {
-      color: rgb(97, 110, 60);
-      margin: -11px auto;
-      text-align: center;
-      font: bold 30px/44px '微软雅黑';
-    }
+        h4 {
+            color: rgb(97, 110, 60);
+            margin: -11px auto;
+            text-align: center;
+            font: bold 30px/44px '微软雅黑';
+        }
 
-    .file input{
-      /* height: 50px; */
-      width: 300px;
-      position: relative;
-      top:30px;
-      left: 25%;
-      /* padding-left: 270px; */
+        .file input {
+            /* height: 50px; */
+            width: 300px;
+            position: relative;
+            top: 30px;
+            left: 25%;
+            /* padding-left: 270px; */
 
-    }
-    .button {
-      height: 50px;
-      width: 300px;
-      /* padding-left: 270px; */
-      position: relative;
-      top:30px;
-      left: 25%;
-      padding-left: 50px;
-    }
+        }
 
-    .button input {
-      height: 50px;
-      width: 200px;
-      display: block;
-      background-color: skyblue;
-      font-size: 1.5em;
-      text-align: center;
-    }
-  </style>
+        .button {
+            height: 50px;
+            width: 300px;
+            /* padding-left: 270px; */
+            position: relative;
+            top: 30px;
+            left: 25%;
+            padding-left: 50px;
+        }
 
-<!--    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>-->
+        .button input {
+            height: 50px;
+            width: 200px;
+            display: block;
+            background-color: skyblue;
+            font-size: 1.5em;
+            text-align: center;
+        }
+    </style>
+
+    <!--    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>-->
     <!-- custom css -->
     <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
 </head>
 
 <body>
-  <div class="container">
+<div class="container" style="height: 800px">
     <div class="header">
-      <div class="head clearfix">
-        <div class="logo">
-<!--          <a href="./index.html">-->
-            <a href="{{ url_for('index')}}">
-            <img src="../static/source/img/Alogo.png" alt="logo" />
-          </a>
+        <div class="head clearfix">
+            <div class="logo">
+                <!--          <a href="./index.html">-->
+                <a href="{{ url_for('index')}}">
+                    <img src="../static/source/img/Alogo.png" alt="logo"/>
+                </a>
+            </div>
+            <div class="menu">
+                <a href="{{ url_for('index')}}" class="option">首页</a>
+                <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+                <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+                <a href="{{ url_for('orchard')}}" class="option select optionNow">始花期预测</a>
+                <a href="{{ url_for('talk')}}" class="option">专家解答</a>
+                <a href="{{ url_for('news')}}" class="option">预防经验</a>
+            </div>
         </div>
-        <div class="menu">
-          <a href="{{ url_for('index')}}" class="option">首页</a>
-            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
-            <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
-            <a href="{{ url_for('orchard')}}" class="option select optionNow">始花期预测</a>
-            <a href="{{ url_for('talk')}}" class="option">专家解答</a>
-            <a href="{{ url_for('news')}}" class="option">预防经验</a>
-        </div>
-      </div>
     </div>
-    <div class="set_form"><h3>苹果褐斑病发病期预测
+
+    <!--      middle-->
+    <div class="set_form">
+        <h3>
+            苹果褐斑病发病期预测
         </h3>
         <h4>请上传Excel文件</h4>
-      <!-- <form action="information.html" id="form" method="post" enctype="application/x-www-form-urlencoded">
-       
-        <ul>
-          <li>
-            <span class="t">用户：</span><input name="name" id="name" type="text" class="username"
-              readonly="readonly" maxlength="20" value="admin" /></label>
-          </li>
-          <li>
-            <span class="t">温度：</span><input type="text" id="tem" name="tem"/></label>
-          </li>
-          <li>
-            <span class="t">湿度：</span>
-            <input type="text" id="humidity" name="humidity"/></label>
-          </li>
-          <li>
-            <span class="t">时间：</span>
-            <input type="datetime-local" name="user_date" value="2015/03/27 10:41" id="user_date" /></label>
-          </li>
-          <li>
-            <span class="t">预警类型：</span>
-            <label for="radio_en">
-              <input name="type" onclick="loading_select_text('en','')" type="radio" id="radio_en" value="en" />
-              发病预警
-            </label>
-            <label for="radio_cn">
-              <input type="radio" onclick="loading_select_text('cn','')" name="type" id="radio_cn" value="cn"
-                checked="checked" />
-              施肥预警
-            </label>
-            <label for="radio_group">
-              <input type="radio" onclick="select_text(this,125909,'A Letter to Tom','5')" name="type" id="radio_group"
-                value="group" />
-              打药预警
-            </label>
-            <label for="radio_group2" style="cursor: help">
-              <input type="radio" onclick="select_text(this)" name="type" id="radio_group2" value="group2" />
-              成熟预警
-            </label>
-          </li>
+        <form action="" method=post enctype=multipart/form-data>
+            <div class="file">
+                <input type=file name=file accept='image/* '>
 
-          <li><span class="t">其他设置：</span>
-            <label for="zoom_font" class="zoom_font auto_font"><input type="checkbox" name="zoom_font" id="zoom_font"
-                value="1" checked="checked" />
-              增大字体</label>
-
-            <label for="dazi_pk_my" class="zoom_font"><input type="checkbox" name="dazi_pk_my" id="dazi_pk_my" value="1"
-                checked="checked" />
-              显示上次预警</label>
-            <label for="style_black" class="zoom_font"><input type="checkbox" name="style_black" id="style_black"
-                value="1" />
-              夜间模式</label>
-            <label for="dazi_continue" class="zoom_font"><input type="checkbox" name="dazi_continue" id="dazi_continue"
-                value="1" />
-              继续上次操作</label>
-          </li>
-          <li class="button">
-            <input name="start_button" type="submit" onmouseover="this.className='on'" onmouseout="this.className=''"
-              value="开始预测" class="" />
-          </li>
-        </ul>
-
-      </form> -->
-      <form action="" method=post enctype=multipart/form-data>
-        <div class="file">
-          <input type=file name=file accept='image/* '>
-
-        </div>
-        <div class="button">
-          <input type="submit" 
-            value="开始预测" class="" />
-        </div>
-        <!-- <input type=submit value="检测"> -->
-      </form>
+            </div>
+            <div class="button">
+                <input type="submit"
+                       value="开始预测" class=""/>
+            </div>
+            <!-- <input type=submit value="检测"> -->
+        </form>
     </div>
-  </div>
+</div>
+
+
+<!--<div class="message-box" style="margin-top: 20%">-->
+
+<!--</div>-->
+
+<div style="    text-align: center !important;">
+    <h3 class="text-center" style="font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;    color: #323648"> Our Services</h3>
+</div>
+<hr/>
+<div style="height: auto;padding: 20px;">
+    <div style="display:flex;">
+        <div class="info box" style="font-family: Verdana;">
+            苹果花期介绍
+            <hr>
+            &nbsp;&nbsp;苹果树是乔木，高可达15米，多具有圆形树冠和短主干；小枝短而粗，圆柱形，幼嫩时密被绒毛，老枝紫褐色，无毛；冬芽卵形，先端钝，密被短柔毛。叶片椭圆形、卵形至宽椭圆形，长4.5-10厘…
+        </div>
+
+        <div class="info box" style="font-family: Verdana;">
+            栽培技术介绍
+            <hr>
+            &nbsp;&nbsp;苹果树秀芽、杀虫、复剪、疏蕾、放蜂、施肥、…
+        </div>
+    </div>
+</div>
+
 <footer class="text-center py-5" style="height: auto;text-align: center;background: #191818;">
     <img src="../static/source/img/字1.png" alt="">
     <p>Made by 李承泽&ta的小伙伴</p>
@@ -314,12 +286,31 @@
 
 <style>
     p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 2em;
-    letter-spacing: 2px;
-    color: #707579;
-    font-weight: 600;
+        margin: 0;
+        font-size: 17px;
+        line-height: 2em;
+        letter-spacing: 2px;
+        color: #707579;
+        font-weight: 600;
     }
+
+    .box {
+        width: 400px;
+        height: auto;
+        border: 2px solid #000;
+        margin: 0 auto 15px;
+        /*   text-align: center; */
+        padding: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    .info {
+        background-color: #ddd;
+        border-color: #aaa;
+        font-size: large;
+        /*float: left;*/
+    }
+
 </style>
 </html>
