@@ -156,7 +156,8 @@ def index():
 
 @app.route("/surveillance")
 def surveillance():
-    return render_template("surveillance.html")
+    return render_template("surveillance2.html")
+    # return render_template("surveillance.html")
 
 @app.route("/news")
 def news():

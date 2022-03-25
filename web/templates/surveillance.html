@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/style.css">
     <link rel="stylesheet" href="../static/surveillanceCss/reset.css">
     <link rel="stylesheet" href="../static/surveillanceCss/iconfont.css">
-
+    <script src="../static/surveillance_resources/js/realtime.js"></script>
     <!--    温度计等显示的css-->
     <style>
         /*.main {*/
@@ -525,55 +525,96 @@
     <!--        存放信息-->
     <br><br><br><br><br><br>
     <div class="main container-fluid" id="home/main">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">土壤温度<span id="BJ_temperStatus" class="float-right text-red">离线</span>
-                    </div>
-                    <div class="panel-body text-center">
-                        <div id="BJ_temp" class="thermometerBlock">土壤温度</div>
-                    </div>
-                </div>
-                <strong style="margin-left: 40%;color: black">土壤温度</strong>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">土壤湿度<span id="BJ_humidityStatus"
-                                                         class="float-right text-red">离线</span></div>
-                    <div class="panel-body">
-                        <div id="BJ_humi" class="thermometerBlock">土壤湿度</div>
-                    </div>
-                </div>
-                <strong style="margin-left: 40%;color: black">土壤温度</strong>
+        <div style="width:100%;height:50px;">
+            <div id="tabs1">
+                <span style="float:left;padding: 15px 30px 0 30px;font-size:14px">田间监测</span>
+                <ul>
+                    <li id="current"><a href="/monitor/realtime/baishui"><span>实时数据</span></a></li>
+                    <li><a href="/monitor/history/baishui"><span>历史数据</span></a></li>
+                </ul>
             </div>
         </div>
+        <table style="width:720px;border:0px;cellpadding:0px;" class="weatherTable">
+            <tr>
+                <td style="text-align: center">风向</td>
+                <td style="text-align: center">环温(℃)</td>
+                <td style="text-align: center">环湿(%RH)</td>
+                <td style="text-align: center">雨量(mm)</td>
+            </tr>
+            <tr>
+                <td height="230">
+                    <div id="div_fx" align="center">&nbsp;</div>
+                </td>
+                <td width="150" height="230">
+                    <div id="div_hw" class="thermometerBlock">环温(℃)</div>
+                </td>
+                <td width="150" height="230">
+                    <div id="div_hs" class="thermometerBlock">环湿(%RH)</div>
+                </td>
+                <td width="150" height="230">
+                    <div id="div_yl" class="thermometerBlock">雨量(mm)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">光照度<span id="BJ_lightStatus" class="float-right text-red">离线</span>
-                    </div>
-                    <div class="panel-body">
-                        <div id="BJ_illum" class="thermometerBlock">光照度</div>
-                    </div>
-                </div>
-                <strong style="margin-left: 40%;color: black">光照度</strong>
-            </div>
+        </table>
+        <div class="historyTable">
+            <div id="datetime_div">&nbsp;</div>
+            <table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="tableRegion">
 
-
-            <!--            等待-->
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin: auto">
-                <div class="panel panel-default panel-timer panel-height">
-                    <div class="panel-heading">土壤湿度<span id="humidityStatus"
-                                                         class="float-right text-red online_Sensor_A">离线</span></div>
-                    <div class="panel-body">
-                        <div id="humi" class="chartBlock">土壤湿度</div>
-                    </div>
-                    <strong style="margin-left: 40%;color: black">土壤湿度</strong>
-
-                </div>
-            </div>
+                <tbody>
+                <tr class="even header">
+                    <td width="25%">指标</td>
+                    <td width="25%">数值</td>
+                    <td width="25%">指标</td>
+                    <td width="25%">数值</td>
+                </tr>
+                <tr class="odd">
+                    <td width="25%">空气温度(℃)</td>
+                    <td width="25%"><span id="real_taAvg">&nbsp;</span></td>
+                    <td width="25%">土壤温度(℃)</td>
+                    <td width="25%"><span id="real_taSoilAvg">&nbsp;</span></td>
+                </tr>
+                <tr class="even">
+                    <td width="25%">空气湿度(%RH)</td>
+                    <td width="25%"><span id="real_rhAvg">&nbsp;</span></td>
+                    <td width="25%">土壤湿度(%RH)</td>
+                    <td width="25%"><span id="real_vwcAvg">&nbsp;</span></td>
+                </tr>
+                <tr class="odd">
+                    <td width="25%">累积降雨量(mm)</td>
+                    <td width="25%"><span id="real_rainTot">&nbsp;</span></td>
+                    <td width="25%">水汽压</td>
+                    <td width="25%"><span id="real_pvaporAvg">&nbsp;</span></td>
+                </tr>
+                <tr class="even">
+                    <td width="25%">风向(o)</td>
+                    <td width="25%"><span id="real_wd">&nbsp;</span></td>
+                    <td width="25%">风速(m/s)</td>
+                    <td width="25%"><span id="real_wsAvg">&nbsp;</span></td>
+                </tr>
+                <tr class="odd">
+                    <td width="25%">总辐射(W/m2)</td>
+                    <td width="25%"><span id="real_slrwAvg">&nbsp;</span></td>
+                    <td width="25%">数采面板温度(℃)</td>
+                    <td width="25%"><span id="real_ptemp">&nbsp;</span></td>
+                </tr>
+                <tr class="even">
+                    <td width="25%">电池电压最小值</td>
+                    <td width="25%"><span id="real_battVoltMin">&nbsp;</span></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%"><span id="real_blank">&nbsp;</span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+        <div id="divContextPath" style="display:none;"></div>
+        <div id="divStationCode" style="display:none;">baishui</div>
     </div>
 </div>
 <!-- footer -->

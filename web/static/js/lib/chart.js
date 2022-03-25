@@ -15,7 +15,7 @@ function thermometer(id,unit,color, min, max, value) {
             'chart': {
                 'upperLimit': max,
                 'lowerLimit': min,
-                'numberSuffix': unit,
+                'numberSuffix': units,
                 'decimals': '1',
                 'showhovereffect': '1',
                 'gaugeFillColor': color,

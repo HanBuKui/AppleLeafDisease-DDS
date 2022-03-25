@@ -1,0 +1,68 @@
+.weatherTable td {
+    color: #000000;
+    font-family: "å®‹ä½“", serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.weatherDataTable td {
+    color: #000000;
+    font-family: "å®‹ä½“", serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+#datetime_div {
+    color: #000000;
+    font-family: "å®‹ä½“", serif;
+    font-size: 14px;
+    line-height: 23px;
+	text-align:center;
+}
+
+.historyTable .odd td, .historyTable .even td {
+    color: #000000;
+    border: 1px #ABABAB solid;
+    border-top: 0;
+    border-left: 0;
+    padding: 0.1em 1em;
+    height: 25px;
+}
+
+.historyTable .tableRegion {
+    border: 1px solid silver;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.historyTable tr.odd {
+    background-color: #FFFFFF; /*å¥‡æ•°è¡Œ*/
+    font-family: verdana, arial, sans-serif;
+    text-align: center;
+    width: 50%;
+}
+
+.historyTable tr.even {
+    background-color: #EEF6FF; /*å¶æ•°è¡Œ*/
+    font-family: verdana, arial, sans-serif;
+    text-align: center;
+}
+
+.historyTable tr.header {
+    background: #ccc url( ../images/bar.gif ) repeat-x left center;
+    border-top: 1px solid #a5a5a5;
+    border-bottom: 1px solid #a5a5a5;
+    font-weight: normal;
+	text-align: center;
+}
+
+.historyTable tr.header tr:hover {
+    background-color: transparent;
+    color: inherit;
+}
+
+.historyTable tr:hover {
+    background-color: #FFFFBB;
+    color: #FFFFFF;
+}
