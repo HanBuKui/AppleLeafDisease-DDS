@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link
@@ -10,43 +10,31 @@
             type="image/x-icon"
     />
     <title>信息监测</title>
-
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/jquery.nstSlider.css">
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/jquery-labelauty.css">
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/switch.css">
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/DateTimePicker.css">
-    <link rel="stylesheet" type="text/css" href="../static/surveillanceCss/style.css">
-    <link rel="stylesheet" href="../static/surveillanceCss/reset.css">
-    <link rel="stylesheet" href="../static/surveillanceCss/iconfont.css">
+<!--    surveillance_resources-->
+    <link rel="stylesheet" type="text/css" href="../static/surveillance_resources/weather/style/tab.css">
+    <link rel="stylesheet" type="text/css" href="../static/surveillance_resources/weather/style/realtime.css">
+    <script src="../static/surveillance_resources/weather/jslib/jquery.pack.js"></script>
+    <script src="../static/surveillance_resources/weather/jslib/util.js"></script>
+    <script src="../static/surveillance_resources/fusioncharts/fusioncharts.js"></script>
+    <script src="../static/surveillance_resources/fusioncharts/fusioncharts.charts.js"></script>
+    <script src="../static/surveillance_resources/fusioncharts/fusioncharts.widgets.js"></script>
+<!--    <script src="../static/surveillance_resources/fusioncharts/realtime.js"></script>-->
     <script src="../static/surveillance_resources/js/realtime.js"></script>
-    <!--    温度计等显示的css-->
+
     <style>
-        /*.main {*/
-        /*    !*display: none;*!*/
-        /*    padding: 90px 40px 0 40px;*/
-        /*}*/
+        html {
+            overflow-x: hidden;
+        }
     </style>
 
+<!--    header的相关css-->
     <style>
         body,
         select,
         form,
-        input,
-        div {
+        input {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
-            -webkit-text-size-adjust: 100%;
-            /* background: url("../static/source/img/apple.png"); */
-            /* background: url("../static/source/img/高清果树.jpg"); */
-            background-color: rgba(220, 247, 226, 0.5);
-            background-size: contain;
-            background-repeat: no-repeat;
-            position: relative;
         }
 
         .clearfix:after {
@@ -74,19 +62,11 @@
             border-bottom: crimson 2px solid;
         }
 
-        .container {
-            background: rgba(250, 245, 245, 0.5);
-            margin: 0;
-            height: 1500px;
-            width: 100%;
-            position: relative;
-        }
-
         .header {
             width: 100%;
             height: 100px;
             background: rgba(255, 255, 255, 0.7);
-            position: absolute;
+            /*position: absolute;*/
             top: 0;
             left: 0;
             z-index: 30;
@@ -118,7 +98,6 @@
             float: right;
             line-height: 100px;
             font-size: 26px;
-            padding: auto;
             /* margin-left: 100px; */
         }
 
@@ -126,370 +105,16 @@
             display: inline-block;
             /* padding: auto; */
             padding: 0 10px;
+
         }
 
         .select {
             background-color: lightcoral;
         }
     </style>
-    <style>
-        .heng {
-            height: 150px;
-            position: relative;
-            top: 120px;
-            left: 180px;
-            background-color: rgba(255, 255, 255, 0.7);
-            width: 1030px;
-        }
-
-        .heng-img a img {
-            height: 150px;
-            width: 225px;
-            position: relative;
-            top: 0px;
-            padding: 0px;
-            left: 0px;
-        }
-
-        .heng-link {
-            height: 150px;
-            width: 750px;
-            /* background-color: rgba(255, 255, 255, 0.7); */
-            font-size: 30px;
-            position: relative;
-            top: -150px;
-            left: 245px;
-            line-height: 45px;
-            margin-left: 20px;
-        }
-
-        .heng-link p {
-            font-size: 15px;
-            line-height: initial;
-            color: lightslategrey;
-            margin-left: 10px;
-        }
-    </style>
-    <style>
-        img,
-        a img {
-            border: none;
-            padding: 0;
-            margin: 0;
-            display: inline-block;
-            max-width: 100%;
-            height: auto;
-            image-rendering: optimizeQuality;
-        }
-
-        .diseasegroup {
-            clear: both;
-            position: relative;
-            top: 150px;
-            left: 10%;
-            width: 80%;
-            height: 1200px;
-            overflow: hidden;
-            text-align: center;
-            margin-bottom: 100px;
-        }
-
-        .span1of3 {
-            width: 28.2%;
-            width: 38.2%;
-            margin: 0;
-            padding: 0;
-            margin-bottom: 100px;
-        }
-
-        .col-mentorship {
-            display: block;
-            float: left;
-            margin: 1% 0 1% 5.6%;
-        }
-
-        .card-top {
-            background: #f9f9fa;
-            border-left: 1px solid #8493a6 !important;
-            border-right: 1px solid #8493a6 !important;
-            border-top: 1px solid #8493a6 !important;
-            border-radius: 6px;
-        }
-
-        .ribbon {
-            width: 125px;
-            height: 125px;
-            overflow: hidden;
-            position: absolute;
-        }
-
-        .ribbon span {
-            position: absolute;
-            display: block;
-            width: 200px;
-            background-color: #454d57;
-            color: #fff;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .ribbon-top-left span {
-            right: -25px;
-            top: 35px;
-            -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-        }
-
-        .mentorship-logo {
-            margin: 20px 0 0 0;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
-            background-color: #fff;
-            border: 1px solid #707070;
-        }
-
-        .mentorship-name-field {
-            margin-top: 0;
-            min-height: 40px;
-            line-height: 20px;
-        }
-
-        .mentorship-desc {
-            color: #818181;
-            font-size: 12px;
-            line-height: 16px;
-            padding: 0 20px 20px 20px;
-            min-height: 50px;
-        }
-
-        .footer {
-            padding: 25px 0;
-            background: #f9f9fa;
-            border-left: 1px solid #8493a6 !important;
-            border-right: 1px solid #8493a6 !important;
-            border-bottom: 1px solid #8493a6 !important;
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
-
-        .apply-donate {
-            width: 180px;
-            line-height: 20px;
-            color: #189aca !important;
-            font-size: 14px !important;
-            font-weight: 600;
-            font-style: normal;
-            text-decoration: none !important;
-            text-align: center;
-            background: #fff;
-            border-radius: 10px;
-            padding: 5px;
-            cursor: pointer;
-            border: 1px solid #189aca !important;
-            display: inline-block;
-        }
-
-        .badge {
-            margin-bottom: -20px;
-            margin-top: -20px;
-            background: #f9f9fa;
-            height: 20px;
-            border-left: 1px solid #8493a6 !important;
-            border-right: 1px solid #8493a6 !important;
-        }
-
-        .card-bottom {
-            border: 1px solid #8493a6 !important;
-            background: #eaebee;
-            padding: 20px;
-            border-top: 1px solid #ced2da;
-            height: 150px;
-        }
-
-        .flex {
-            margin: 0px 0px 10px 0px;
-            line-height: 1.2;
-        }
-
-        button {
-            appearance: auto;
-            text-rendering: auto;
-            color: -internal-light-dark(black, white);
-            letter-spacing: normal;
-            word-spacing: normal;
-            text-transform: none;
-            text-indent: 0px;
-            text-shadow: none;
-            display: inline-block;
-            text-align: center;
-            align-items: flex-start;
-            cursor: default;
-            background-color: -internal-light-dark(
-                    rgb(239, 239, 239),
-                    rgb(59, 59, 59)
-            );
-            box-sizing: border-box;
-            margin: 0em;
-            font: 500 14px Arial;
-            padding: 2px 10px;
-            border-width: 2px;
-            border-style: outset;
-            border-color: -internal-light-dark(
-                    rgb(118, 118, 118),
-                    rgb(133, 133, 133)
-            );
-            border-image: initial;
-            line-height: 1.2;
-        }
-
-        .left-btn.active,
-        .right-btn.active {
-            background-color: #189aca;
-            color: #fff;
-        }
-
-        .left-btn {
-            background-color: #fff;
-            border: 1px solid #8493a6 !important;
-            box-shadow: none;
-            color: #5a5656;
-            font-size: 14px;
-            height: 25px;
-            padding: 5px 5px 5px 10px;
-            border-radius: 18px 0 0 18px;
-            text-decoration: none;
-            margin-right: -5px;
-        }
-
-        .right-btn {
-            border-radius: 0 18px 18px 0;
-            background-color: #fff;
-            border: 1px solid #8493a6 !important;
-            box-shadow: none;
-            color: #5a5656;
-            text-decoration: none;
-            font-size: 14px;
-            height: 25px;
-            padding: 5px 10px 5px 5px;
-        }
-
-        .bottom-title {
-            font-size: 12px;
-            text-align: left;
-            color: #5a5656;
-            text-transform: capitalize;
-            font-weight: 700;
-            opacity: 0.8;
-            margin: 0;
-            padding: 0;
-            line-height: 14px;
-        }
-
-        .req-skills {
-            text-align: left;
-            line-height: 12px;
-        }
-
-        .skills-bubble {
-            color: #5a5656;
-            font-size: 12px;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            text-align: center;
-            background: #fff;
-            border-radius: 7px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding: 5px;
-            margin: 5px 0 0 5px;
-            display: inline-block;
-        }
-
-        .bottom-portion {
-            margin-top: 15px;
-        }
-
-        .bottom-title {
-            font-size: 12px;
-            text-align: left;
-            color: #5a5656;
-            text-transform: capitalize;
-            font-weight: 700;
-            opacity: 0.8;
-            margin: 0;
-            padding: 0;
-            line-height: 14px;
-        }
-
-        .section-mentorship {
-            clear: both;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .section-mentorship img {
-            height: 100px;
-            margin: 5px 10px;
-        }
-
-        .group-mentorship:before,
-        .group-mentorship:after {
-            content: "";
-            display: table;
-        }
-
-        .term-1,
-        .term-2 {
-            color: #5a5656;
-            font-size: 8px;
-            line-height: 16px;
-            font-weight: 600;
-            font-style: normal;
-            text-decoration: none;
-            text-align: center;
-            background: #fff;
-            border-radius: 5px;
-            padding: 10px 5px;
-        }
-
-        .display-none {
-            display: none;
-        }
-
-        .display {
-            display: block;
-        }
-
-        .plus {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            font-size: 10px;
-            line-height: 12px;
-            text-align: center;
-            font-weight: 600;
-            background-color: #fff;
-            cursor: default;
-            display: inline-block;
-            /* float: left; */
-            margin-top: 5px;
-            margin-left: -5px;
-        }
-    </style>
-
-    <!--    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">-->
-    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
-    <!-- custom css -->
-    <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
 </head>
-
 <body>
-<div class="container">
-    <div class="header">
+<div class="header">
         <div class="head clearfix">
             <div class="logo">
                 <!--          <a href="./index.html">-->
@@ -507,144 +132,130 @@
             </div>
         </div>
     </div>
-    <div class="heng" style="margin-left: 7%">
-        <div class="heng-img">
-            <a href="https://new.nongyao001.com/show-127914.html"
-            ><img src="../static/source/img/o果园背景.jpg" alt=""
-            /></a>
-        </div>
-        <div class="heng-link">
-            <a href="https://new.nongyao001.com/show-127914.html"
-            >园地信息检测</a
-            >
-            <p>
-                做一些描述
-            </p>
-        </div>
-    </div>
-    <!--        存放信息-->
-    <br><br><br><br><br><br>
-    <div class="main container-fluid" id="home/main">
-        <div style="width:100%;height:50px;">
-            <div id="tabs1">
-                <span style="float:left;padding: 15px 30px 0 30px;font-size:14px">田间监测</span>
-                <ul>
-                    <li id="current"><a href="/monitor/realtime/baishui"><span>实时数据</span></a></li>
-                    <li><a href="/monitor/history/baishui"><span>历史数据</span></a></li>
-                </ul>
-            </div>
-        </div>
-        <table style="width:720px;border:0px;cellpadding:0px;" class="weatherTable">
-            <tr>
-                <td style="text-align: center">风向</td>
-                <td style="text-align: center">环温(℃)</td>
-                <td style="text-align: center">环湿(%RH)</td>
-                <td style="text-align: center">雨量(mm)</td>
-            </tr>
-            <tr>
-                <td height="230">
-                    <div id="div_fx" align="center">&nbsp;</div>
-                </td>
-                <td width="150" height="230">
-                    <div id="div_hw" class="thermometerBlock">环温(℃)</div>
-                </td>
-                <td width="150" height="230">
-                    <div id="div_hs" class="thermometerBlock">环湿(%RH)</div>
-                </td>
-                <td width="150" height="230">
-                    <div id="div_yl" class="thermometerBlock">雨量(mm)</div>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
 
-        </table>
-        <div class="historyTable">
-            <div id="datetime_div">&nbsp;</div>
-            <table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="tableRegion">
 
-                <tbody>
-                <tr class="even header">
-                    <td width="25%">指标</td>
-                    <td width="25%">数值</td>
-                    <td width="25%">指标</td>
-                    <td width="25%">数值</td>
-                </tr>
-                <tr class="odd">
-                    <td width="25%">空气温度(℃)</td>
-                    <td width="25%"><span id="real_taAvg">&nbsp;</span></td>
-                    <td width="25%">土壤温度(℃)</td>
-                    <td width="25%"><span id="real_taSoilAvg">&nbsp;</span></td>
-                </tr>
-                <tr class="even">
-                    <td width="25%">空气湿度(%RH)</td>
-                    <td width="25%"><span id="real_rhAvg">&nbsp;</span></td>
-                    <td width="25%">土壤湿度(%RH)</td>
-                    <td width="25%"><span id="real_vwcAvg">&nbsp;</span></td>
-                </tr>
-                <tr class="odd">
-                    <td width="25%">累积降雨量(mm)</td>
-                    <td width="25%"><span id="real_rainTot">&nbsp;</span></td>
-                    <td width="25%">水汽压</td>
-                    <td width="25%"><span id="real_pvaporAvg">&nbsp;</span></td>
-                </tr>
-                <tr class="even">
-                    <td width="25%">风向(o)</td>
-                    <td width="25%"><span id="real_wd">&nbsp;</span></td>
-                    <td width="25%">风速(m/s)</td>
-                    <td width="25%"><span id="real_wsAvg">&nbsp;</span></td>
-                </tr>
-                <tr class="odd">
-                    <td width="25%">总辐射(W/m2)</td>
-                    <td width="25%"><span id="real_slrwAvg">&nbsp;</span></td>
-                    <td width="25%">数采面板温度(℃)</td>
-                    <td width="25%"><span id="real_ptemp">&nbsp;</span></td>
-                </tr>
-                <tr class="even">
-                    <td width="25%">电池电压最小值</td>
-                    <td width="25%"><span id="real_battVoltMin">&nbsp;</span></td>
-                    <td width="25%">&nbsp;</td>
-                    <td width="25%"><span id="real_blank">&nbsp;</span></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="divContextPath" style="display:none;"></div>
-        <div id="divStationCode" style="display:none;">baishui</div>
+<div style="width:100%;height:50px;text-align: center;">
+    <div id="tabs1">
+        <span style="float:left;padding: 15px 30px 0 30px;font-size:14px">田间监测</span>
+        <ul>
+            <li id="current"><a href="{{ url_for('surveillance')}}"><span>实时数据</span></a></li>
+            <li><a href="/monitor/history/baishui"><span>历史数据</span></a></li>
+        </ul>
     </div>
 </div>
+<div style="display: flex;justify-content: center;">
+    <table style="width:720px;border:0px;cellpadding:0px;" class="weatherTable">
+    <tr>
+        <td style="text-align: center">风向</td>
+        <td style="text-align: center">环温(℃)</td>
+        <td style="text-align: center">环湿(%RH)</td>
+        <td style="text-align: center">雨量(mm)</td>
+    </tr>
+    <tr>
+        <td height="230">
+            <div id="div_fx" align="center">&nbsp;</div>
+        </td>
+        <td width="150" height="230">
+            <div id="div_hw" class="thermometerBlock">环温(℃)</div>
+        </td>
+        <td width="150" height="230">
+            <div id="div_hs" class="thermometerBlock">环湿(%RH)</div>
+        </td>
+        <td width="150" height="230">
+            <div id="div_yl" class="thermometerBlock">雨量(mm)</div>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+
+</table>
+</div>
+<div class="historyTable">
+    <div id="datetime_div">&nbsp;</div>
+    <table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="tableRegion">
+
+        <tbody>
+        <tr class="even header">
+            <td width="25%">指标</td>
+            <td width="25%">数值</td>
+            <td width="25%">指标</td>
+            <td width="25%">数值</td>
+        </tr>
+        <tr class="odd">
+            <td width="25%">空气温度(℃)</td>
+            <td width="25%"><span id="real_taAvg">&nbsp;</span></td>
+            <td width="25%">土壤温度(℃)</td>
+            <td width="25%"><span id="real_taSoilAvg">&nbsp;</span></td>
+        </tr>
+        <tr class="even">
+            <td width="25%">空气湿度(%RH)</td>
+            <td width="25%"><span id="real_rhAvg">&nbsp;</span></td>
+            <td width="25%">土壤湿度(%RH)</td>
+            <td width="25%"><span id="real_vwcAvg">&nbsp;</span></td>
+        </tr>
+        <tr class="odd">
+            <td width="25%">累积降雨量(mm)</td>
+            <td width="25%"><span id="real_rainTot">&nbsp;</span></td>
+            <td width="25%">水汽压</td>
+            <td width="25%"><span id="real_pvaporAvg">&nbsp;</span></td>
+        </tr>
+        <tr class="even">
+            <td width="25%">风向(o)</td>
+            <td width="25%"><span id="real_wd">&nbsp;</span></td>
+            <td width="25%">风速(m/s)</td>
+            <td width="25%"><span id="real_wsAvg">&nbsp;</span></td>
+        </tr>
+        <tr class="odd">
+            <td width="25%">总辐射(W/m2)</td>
+            <td width="25%"><span id="real_slrwAvg">&nbsp;</span></td>
+            <td width="25%">数采面板温度(℃)</td>
+            <td width="25%"><span id="real_ptemp">&nbsp;</span></td>
+        </tr>
+        <tr class="even">
+            <td width="25%">电池电压最小值</td>
+            <td width="25%"><span id="real_battVoltMin">&nbsp;</span></td>
+            <td width="25%">&nbsp;</td>
+            <td width="25%"><span id="real_blank">&nbsp;</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 <!-- footer -->
-<footer class="text-center py-5" style="height: auto;text-align: center">
+<footer class="text-center py-5" style="height: auto;text-align: center;margin-top: 5%;">
     <img src="../static/source/img/字1.png" alt="">
     <p>Made by 李承泽&ta的小伙伴</p>
     <p>&copy; Copyright 2022 NWAFU</p>
 </footer>
-
-
-<!-- 通用js -->
-<script src="../static/js/lib/jquery.min.js"></script>
-<script src="../static/js/WSN/WSNHistory.js"></script>
-<script src="../static/js/charts/highchart/highcharts.js"></script>
-<script src="../static/js/charts/drawcharts.js"></script>
-<script src="../static/js/charts/timeline.js"></script>
-<script src="../static/js/charts/fusioncharts/fusioncharts.js"></script>
-<script src="../static/js/charts/fusioncharts/fusioncharts.widgets.js"></script>
-<script src="../static/js/charts/fusioncharts/themes/fusioncharts.theme.fint.js"></script>
-<script src="../static/js/lib/bootstrap.min.js"></script>
-<script src="../static/js/lib/director.min.js"></script>
-<script src="../static/js/lib/qrcode.js"></script>
-<script src="../static/js/lib/jquery-labelauty.js"></script>
-<script src="../static/js/lib/jquery.nstSlider.min.js"></script>
-<script src="../static/js/lib/chart.js"></script>
-<!-- 数据处理js -->
-<script src="../static/js/WSN/WSNRTConnect.js"></script>
-<script src="../static/js/config.js"></script>
-<script src="../static/js/version.js"></script>
-<script src="../static/js/script.js"></script>
 </body>
+<style>
+    footer {
+        background: #191818;
+    }
 
+    footer .text-center {
+        text-align: center !important;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 17px;
+        line-height: 2em;
+        letter-spacing: 2px;
+        color: #707579;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    footer img{
+        margin-left:2%;
+    }
+
+    footer text-center{
+        text-align: center !important;
+    }
+</style>
 </html>

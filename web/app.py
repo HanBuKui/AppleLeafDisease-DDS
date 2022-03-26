@@ -160,8 +160,7 @@ def index2():
 
 @app.route("/surveillance")
 def surveillance():
-    return render_template("surveillance2.html")
-    # return render_template("surveillance.html")
+    return render_template("surveillance.html")
 
 @app.route("/news")
 def news():
@@ -173,7 +172,7 @@ def aboutUs():
 
 @app.route("/talk")
 def talk():
-    return render_template("information.html")
+    return render_template("talk.html")
 
 @app.route("/orchard")
 def orchard():
