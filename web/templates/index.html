@@ -13,7 +13,7 @@
     <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
     <!-- custom css -->
     <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
-
+    <link type="text/css" rel="stylesheet" href="../static/css/popup.css">
     <style>
         body,
         select,
@@ -186,7 +186,7 @@
             <a href="{{ url_for('detect')}}" class="option">病害检测</a>
             <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
             <a href="{{ url_for('news')}}" class="option">预防经验</a>
-            <a href="{{ url_for('talk')}}" class="option">留言咨询专家</a>
+            <a href="#popup1" class="option">留言咨询专家</a>
             <!--            <a href="{{ url_for('aboutUs')}}" class="option">关于我们</a>-->
 <!--            <a href="{{ url_for('login')}}" class="option">登录</a>-->
         </div>
@@ -296,7 +296,7 @@
 
              <div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
                 <img src="../static/source/img/s4.jpg" class="img-fluid" alt=""/>
-                <a href="{{ url_for('talk') }}">
+                <a href="#popup1">
                     <div class="blog-info">
                         <h4>留言咨询专家</h4>
                         <p class="mt-2"> 写少一点 </p>
@@ -307,7 +307,15 @@
     </div>
 </section>
 <!-- //Products & Services -->
-
+<div id="popup1" class="overlay_popout light">
+    <div class="popup">
+        <h2>扫码咨询专家</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+        <div class="content">
+            <img src="static/images/professor.png" style="width: 250px; height: 250px;">
+        </div>
+    </div>
+</div>
 
 <!-- footer -->
 <footer class="text-center py-5" style="height: auto">

@@ -5,8 +5,16 @@
     <title>灾害检测</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
     <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="../static/css/popup.css">
     <!-- custom css -->
     <link href="../static/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <style>
+  .popup {
+    margin-top: 10%;
+    height: 340px;
+    width: 300px;
+  }
+</style>
     <style>
         input {
             margin: 0;
@@ -71,7 +79,7 @@
             height: 100px;
             float: right;
             line-height: 100px;
-            font-size: 26px;
+            font-size: 23px;
             padding: auto;
             /* margin-left: 100px; */
         }
@@ -104,11 +112,11 @@
         </div>
         <div class="menu">
             <a href="{{ url_for('index')}}" class="option">首页</a>
-            <a href="{{ url_for('detect')}}" class="option select optionNow">病害检测</a>
             <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+            <a href="{{ url_for('detect')}}" class="option select optionNow">病害检测</a>
             <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
-            <a href="{{ url_for('talk')}}" class="option">专家解答</a>
             <a href="{{ url_for('news')}}" class="option">预防经验</a>
+            <a href="#popup1" class="option">留言咨询专家</a>
             <!--            <a href="{{ url_for('aboutUs')}}" class="option">关于我们</a>-->
         </div>
     </div>
@@ -142,6 +150,18 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;">Predict</button>
     </form>
 </div>
+
+<div id="popup1" class="overlay_popout light">
+    <div class="popup">
+        <h2>扫码咨询专家</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+        <div class="content">
+            <img src="static/images/professor.png" style="width: 250px; height: 250px;">
+        </div>
+    </div>
+</div>
+
+
 <!-- footer -->
 <footer class="text-center py-5" style="height: auto;margin-top: 5%">
     <img src="../static/source/img/字1.png" alt="">

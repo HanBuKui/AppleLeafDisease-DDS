@@ -10,7 +10,8 @@
             type="image/x-icon"
     />
     <title>信息监测</title>
-<!--    surveillance_resources-->
+    <link type="text/css" rel="stylesheet" href="../static/css/popup.css">
+    <!--    surveillance_resources-->
     <link rel="stylesheet" type="text/css" href="../static/surveillance_resources/weather/style/tab.css">
     <link rel="stylesheet" type="text/css" href="../static/surveillance_resources/weather/style/realtime.css">
     <script src="../static/surveillance_resources/weather/jslib/jquery.pack.js"></script>
@@ -18,16 +19,22 @@
     <script src="../static/surveillance_resources/fusioncharts/fusioncharts.js"></script>
     <script src="../static/surveillance_resources/fusioncharts/fusioncharts.charts.js"></script>
     <script src="../static/surveillance_resources/fusioncharts/fusioncharts.widgets.js"></script>
-<!--    <script src="../static/surveillance_resources/fusioncharts/realtime.js"></script>-->
+    <!--    <script src="../static/surveillance_resources/fusioncharts/realtime.js"></script>-->
     <script src="../static/surveillance_resources/js/realtime.js"></script>
-
+    <style>
+        .popup {
+            margin-top: 10%;
+            height: 300px;
+            width: 280px;
+        }
+    </style>
     <style>
         html {
             overflow-x: hidden;
         }
     </style>
 
-<!--    header的相关css-->
+    <!--    header的相关css-->
     <style>
         body,
         select,
@@ -97,7 +104,7 @@
             height: 100px;
             float: right;
             line-height: 100px;
-            font-size: 26px;
+            font-size: 23px;
             /* margin-left: 100px; */
         }
 
@@ -115,23 +122,23 @@
 </head>
 <body>
 <div class="header">
-        <div class="head clearfix">
-            <div class="logo">
-                <!--          <a href="./index.html">-->
-                <a href="{{ url_for('index')}}">
-                    <img src="../static/source/img/Alogo.png" alt="logo"/>
-                </a>
-            </div>
-            <div class="menu">
-                <a href="{{ url_for('index')}}" class="option">首页</a>
-                <a href="{{ url_for('surveillance')}}" class="option  select optionNow">信息监测</a>
-                <a href="{{ url_for('detect')}}" class="option">病害检测</a>
-                <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
-                <a href="{{ url_for('talk')}}" class="option">专家解答</a>
-                <a href="{{ url_for('news')}}" class="option">预防经验</a>
-            </div>
+    <div class="head clearfix">
+        <div class="logo">
+            <!--          <a href="./index.html">-->
+            <a href="{{ url_for('index')}}">
+                <img src="../static/source/img/Alogo.png" alt="logo"/>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="{{ url_for('index')}}" class="option">首页</a>
+            <a href="{{ url_for('surveillance')}}" class="option  select optionNow">信息监测</a>
+            <a href="{{ url_for('detect')}}" class="option">病害检测</a>
+            <a href="{{ url_for('orchard')}}" class="option">始花期预测</a>
+            <a href="{{ url_for('news')}}" class="option">预防经验</a>
+            <a href="#popup1" class="option">留言咨询专家</a>
         </div>
     </div>
+</div>
 
 
 <div style="width:100%;height:50px;text-align: center;">
@@ -145,34 +152,34 @@
 </div>
 <div style="display: flex;justify-content: center;">
     <table style="width:720px;border:0px;cellpadding:0px;" class="weatherTable">
-    <tr>
-        <td style="text-align: center">风向</td>
-        <td style="text-align: center">环温(℃)</td>
-        <td style="text-align: center">环湿(%RH)</td>
-        <td style="text-align: center">雨量(mm)</td>
-    </tr>
-    <tr>
-        <td height="230">
-            <div id="div_fx" align="center">&nbsp;</div>
-        </td>
-        <td width="150" height="230">
-            <div id="div_hw" class="thermometerBlock">环温(℃)</div>
-        </td>
-        <td width="150" height="230">
-            <div id="div_hs" class="thermometerBlock">环湿(%RH)</div>
-        </td>
-        <td width="150" height="230">
-            <div id="div_yl" class="thermometerBlock">雨量(mm)</div>
-        </td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
+        <tr>
+            <td style="text-align: center">风向</td>
+            <td style="text-align: center">环温(℃)</td>
+            <td style="text-align: center">环湿(%RH)</td>
+            <td style="text-align: center">雨量(mm)</td>
+        </tr>
+        <tr>
+            <td height="230">
+                <div id="div_fx" align="center">&nbsp;</div>
+            </td>
+            <td width="150" height="230">
+                <div id="div_hw" class="thermometerBlock">环温(℃)</div>
+            </td>
+            <td width="150" height="230">
+                <div id="div_hs" class="thermometerBlock">环湿(%RH)</div>
+            </td>
+            <td width="150" height="230">
+                <div id="div_yl" class="thermometerBlock">雨量(mm)</div>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
 
-</table>
+    </table>
 </div>
 <div class="historyTable">
     <div id="datetime_div">&nbsp;</div>
@@ -224,6 +231,17 @@
         </tbody>
     </table>
 </div>
+
+<div id="popup1" class="overlay_popout light">
+    <div class="popup">
+        <h2>扫码咨询专家</h2>
+        <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+        <div class="content">
+            <img src="static/images/professor.png" style="width: 250px; height: 250px;">
+        </div>
+    </div>
+</div>
+
 <!-- footer -->
 <footer class="text-center py-5" style="height: auto;text-align: center;margin-top: 5%;">
     <img src="../static/source/img/字1.png" alt="">
@@ -250,11 +268,11 @@
         text-align: center;
     }
 
-    footer img{
-        margin-left:2%;
+    footer img {
+        margin-left: 2%;
     }
 
-    footer text-center{
+    footer text-center {
         text-align: center !important;
     }
 </style>

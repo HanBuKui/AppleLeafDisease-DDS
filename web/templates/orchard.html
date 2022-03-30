@@ -7,8 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="../static/source/img/Alogo.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./style.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/popup.css">
     <title>苹果始花期预测
     </title>
+    <style>
+        .popup {
+            margin-top: 10%;
+            height: 300px;
+            width: 280px;
+        }
+    </style>
     <style>
         body,
         select,
@@ -99,7 +107,7 @@
             height: 100px;
             float: right;
             line-height: 100px;
-            font-size: 26px;
+            font-size: 23px;
             padding: auto;
             /* margin-left: 100px; */
         }
@@ -220,11 +228,11 @@
             </div>
             <div class="menu">
                 <a href="{{ url_for('index')}}" class="option">首页</a>
-                <a href="{{ url_for('detect')}}" class="option">病害检测</a>
                 <a href="{{ url_for('surveillance')}}" class="option">信息监测</a>
+                <a href="{{ url_for('detect')}}" class="option">病害检测</a>
                 <a href="{{ url_for('orchard')}}" class="option select optionNow">始花期预测</a>
-                <a href="{{ url_for('talk')}}" class="option">专家解答</a>
                 <a href="{{ url_for('news')}}" class="option">预防经验</a>
+                <a href="#popup1" class="option">留言咨询专家</a>
             </div>
         </div>
     </div>
@@ -275,6 +283,17 @@
         </div>
     </div>
 </div>
+
+<div id="popup1" class="overlay_popout light">
+    <div class="popup">
+        <h2>扫码咨询专家</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+        <div class="content">
+            <img src="static/images/professor.png" style="width: 250px; height: 250px;">
+        </div>
+    </div>
+</div>
+
 
 <footer class="text-center py-5" style="height: auto;text-align: center;background: #191818;">
     <img src="../static/source/img/字1.png" alt="">
