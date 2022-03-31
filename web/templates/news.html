@@ -10,6 +10,15 @@
       href="../static/source/img/Alogo.png"
       type="image/x-icon"
     />
+
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,400i,700'>
+    <link rel="stylesheet" type="text/css" href="../static/diseaseInformation/diseaseInformation.css">
+
+
+
+
     <title>预防经验</title>
     <style>
       .popup {
@@ -674,10 +683,9 @@
           </div>
           <div class="footer">
             <a
-              href="https://baike.baidu.com/item/%E9%BB%91%E6%98%9F%E7%97%85/11036088?fr=aladdin"
+              href="#popup3"
               class="apply-donate adBtn box-1 apply-1"
-              >了解详情</a
-            >
+              >了解详情</a>
           </div>
         </div>
         <div class="col-mentorship span1of3">
@@ -756,10 +764,9 @@
           </div>
           <div class="footer">
             <a
-              href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E8%A4%90%E6%96%91%E7%97%85"
+              href="#popup4"
               class="apply-donate adBtn box-2 apply-2"
-              >了解详情</a
-            >
+              >了解详情</a>
           </div>
         </div>
         <div class="col-mentorship span1of3">
@@ -837,10 +844,9 @@
           </div>
           <div class="footer">
             <a
-              href="https://baike.baidu.com/item/%E8%8B%B9%E6%9E%9C%E6%96%91%E7%82%B9%E8%90%BD%E5%8F%B6%E7%97%85/4170222"
+              href="#popup5"
               class="apply-donate adBtn box-3 apply-3"
-              >了解详情</a
-            >
+              >了解详情</a>
           </div>
         </div>
       </div>
@@ -857,14 +863,47 @@
     </div>
 </div>
 
-<!--锈病    -->
+<!--锈病-->
 <div id="popup2" class="overlay_popout light">
-    <div class="popup">
-        <h2>锈病</h2>
+    <div class="popup" style="width: auto;height:auto">
+        <h2>锈病-详情介绍</h2>
           <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
-        <div class="content">
-            <p>锈病information</p>
-        </div>
+      <h2></h2>
+      <div class="carousel-container"></div>
+<!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>-->
+<!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>-->
+<!--<script  src="../static/diseaseInformation/diseaseInfo.js"></script>-->
+    </div>
+</div>
+
+<!--黑星病-->
+<div id="popup3" class="overlay_popout light">
+    <div class="popup" style="width: auto;height:auto">
+        <h2>黑星病-详情介绍</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+      <h2></h2>
+      <div class="carousel-container-heixingbing"></div>
+    </div>
+</div>
+
+<!--褐斑病-->
+<div id="popup4" class="overlay_popout light">
+    <div class="popup" style="width: auto;height:auto">
+        <h2>褐斑病-详情介绍</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+      <h2></h2>
+      <div class="carousel-container-hebanbing"></div>
+    </div>
+</div>
+
+
+<!--斑点落叶病-->
+<div id="popup5" class="overlay_popout light">
+    <div class="popup" style="width: auto;height:auto">
+        <h2>斑点落叶病-详情介绍</h2>
+          <a class="close" href="#">&times;</a>   <!--&times会被解译成x-->
+      <h2></h2>
+      <div class="carousel-container-bandianluoyebing"></div>
     </div>
 </div>
 
@@ -978,4 +1017,10 @@
       });
     });
   </script>
+
+<!--详细页面的弹窗内容-->
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+<script  src="../static/diseaseInformation/diseaseInfo.js"></script>
+
 </html>
